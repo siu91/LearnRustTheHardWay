@@ -8,4 +8,6 @@
 学习资料：
  - [Databend Rust 公开课](https://www.bilibili.com/video/BV1mg411778g?spm_id_from=333.999.0.0)
  - [Rsut 语言圣经](https://course.rs)
+ - [菜鸟教程 Rust](https://m.runoob.com/rust/rust-tutorial.html)
+ - [The Rust Programming Language(中文版)](https://kaisery.github.io/trpl-zh-cn/)
 
