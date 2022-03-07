@@ -8,6 +8,8 @@ siu@localhost ~ % curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```shell
 siu@localhost ~ % rustc -V
 rustc 1.59.0 (9d1b2106e 2022-02-23)
+siu@localhost ~ % cargo -V
+cargo 1.59.0 (49d8809dc 2022-02-10)
 ````
 ## 卸载
 ```shell
