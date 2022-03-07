@@ -1,3 +1,4 @@
+# 安装 Rust 环境
 > Mac 上安装 Rust 方式可以选择 brew 和官方安装方式，这里推荐[官方的安装方法](https://www.rust-lang.org/tools/install)
 
 ## 安装
