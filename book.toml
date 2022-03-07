@@ -4,3 +4,8 @@ language = "en"
 multilingual = false
 src = "src"
 title = "Learn Rust the hard way"
+
+
+[output.html]
+git-repository-url = "https://github.com/siu91/LearnRustTheHardWay"
+edit-url-template = "https://github.com/siu91/LearnRustTheHardWay/edit/main/{path}"
