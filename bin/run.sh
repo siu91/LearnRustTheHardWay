@@ -1,0 +1,1 @@
+cp -f ./README.md ./src/;mdbook serve

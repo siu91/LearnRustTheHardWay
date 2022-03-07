@@ -1,0 +1,1 @@
+cp -f ./README.md ./src/;mdbook build;rm -rf ./src/README.md
