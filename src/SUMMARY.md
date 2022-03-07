@@ -2,7 +2,7 @@
 
 [前言](./README.md)
 [Rust 世界](./rust-world.md)
-[注](./README.md)
+[注：操作环境](./note.md)
 
 ## 第一章
 - [环境、IDE和命名](./1-into-rust/intro.md)
