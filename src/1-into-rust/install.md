@@ -13,6 +13,6 @@ cargo 1.59.0 (49d8809dc 2022-02-10)
 ````
 ## 卸载
 ```shell
-siu@localhost ~ % $ rustup self uninstall
+siu@localhost ~ % rustup self uninstall
 ````
 
