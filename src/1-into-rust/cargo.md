@@ -81,7 +81,7 @@ Hello, world!
 
 #### 编译检查：cargo check
 
-&#8195;&#8195; Rust 编译速度相对会比较慢（Golang），当项目 较大时，可以使用 `cargo check`来快速验证代码是否能通过编译。
+&#8195;&#8195; Rust 编译速度相对会比较慢（Golang），当项目较大时，可以使用 `cargo check`来快速验证代码是否能通过编译。
 
 ```shell
 siu@localhost hello_world % cargo check
