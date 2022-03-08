@@ -91,7 +91,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">前言</a></li><li class="chapter-item expanded affix "><a href="0-foreword/rust-world.html">Rust 世界</a></li><li class="chapter-item expanded affix "><a href="0-foreword/learning-materials.html">学习资料</a></li><li class="chapter-item expanded "><a href="1-into-rust/intro.html"><strong aria-hidden="true">1.</strong> 走进 Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1-into-rust/install.html"><strong aria-hidden="true">1.1.</strong> 安装 Rust 环境</a></li><li class="chapter-item expanded "><a href="1-into-rust/ide.html"><strong aria-hidden="true">1.2.</strong> 安装 IDE：VS Code</a></li><li class="chapter-item expanded "><a href="1-into-rust/cargo.html"><strong aria-hidden="true">1.3.</strong> 包管理：Cargo</a></li><li class="chapter-item expanded "><a href="1-into-rust/hello-world.html"><strong aria-hidden="true">1.4.</strong> Hello world!</a></li><li class="chapter-item expanded "><a href="1-into-rust/vscode-debug.html"><strong aria-hidden="true">1.5.</strong> “加餐” VS CODE debug</a></li></ol></li><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">2.</strong> 其它相关知识</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">2.1.</strong> TCP、HTTP</a></li><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">2.2.</strong> 操作系统</a></li><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">2.3.</strong> 算法和数据结构</a></li><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">2.4.</strong> Rust 前端：WASM</a></li><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">2.5.</strong> Yew</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">前言</a></li><li class="chapter-item expanded affix "><a href="0-foreword/rust-world.html">Rust 世界</a></li><li class="chapter-item expanded affix "><a href="0-foreword/learning-materials.html">学习资料</a></li><li class="chapter-item expanded "><a href="1-into-rust/intro.html"><strong aria-hidden="true">1.</strong> 走进 Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1-into-rust/install.html"><strong aria-hidden="true">1.1.</strong> 安装 Rust 环境</a></li><li class="chapter-item expanded "><a href="1-into-rust/ide.html"><strong aria-hidden="true">1.2.</strong> 安装 IDE：VS Code</a></li><li class="chapter-item expanded "><a href="1-into-rust/cargo.html"><strong aria-hidden="true">1.3.</strong> 包管理：Cargo</a></li><li class="chapter-item expanded "><a href="1-into-rust/hello-world.html"><strong aria-hidden="true">1.4.</strong> Hello world!</a></li><li class="chapter-item expanded "><a href="1-into-rust/vscode-debug.html"><strong aria-hidden="true">1.5.</strong> VS CODE debug 配置</a></li></ol></li><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">2.</strong> 其它相关知识</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">2.1.</strong> TCP、HTTP</a></li><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">2.2.</strong> 操作系统</a></li><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">2.3.</strong> 算法和数据结构</a></li><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">2.4.</strong> Rust 前端：WASM</a></li><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">2.5.</strong> Yew</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -380,7 +380,7 @@ TUI/GUI 开发：winit / gtk / egui / imgui / yew / cursive / iced / fontdue / t
 <li><a href="1-into-rust/./ide.html">安装 IDE：VS Code</a></li>
 <li><a href="1-into-rust/./cargo.html">包管理：Cargo</a></li>
 <li><a href="1-into-rust/./hello-word.html">Hello world</a></li>
-<li><a href="1-into-rust/.//vscode-debug.html">“加餐” VS CODE debug</a></li>
+<li><a href="1-into-rust/.//vscode-debug.html">VS CODE debug 配置</a></li>
 </ul>
 <h1><a class="header" href="#安装-rust-环境" id="安装-rust-环境">安装 Rust 环境</a></h1>
 <blockquote>
@@ -514,9 +514,10 @@ geometry = { path = &quot;crates/geometry&quot; }
     println!(&quot;Hello, world!&quot;);
 }
 </code></pre></pre>
-<h1><a class="header" href="#加餐-vs-code-中-debug-技巧" id="加餐-vs-code-中-debug-技巧">“加餐” VS Code 中 debug 技巧</a></h1>
+<h1><a class="header" href="#vs-code-debug-配置" id="vs-code-debug-配置">VS Code debug 配置</a></h1>
 <p>   debug 永远都是编码中最重要的环节，所以在第一个学习阶段，需要先学习一下这部分。</p>
 <h2><a class="header" href="#配置-launch" id="配置-launch">配置 Launch</a></h2>
+<p><em><strong>注：先安装 CodeLLDB 插件</strong></em></p>
 <p><code>Run &amp; Debug -&gt; Add Configuration</code></p>
 <pre><code class="language-json">{
     &quot;version&quot;: &quot;0.2.0&quot;,
