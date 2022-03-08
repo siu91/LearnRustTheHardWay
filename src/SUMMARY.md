@@ -2,7 +2,7 @@
 
 [前言](./README.md)
 [Rust 世界](./0-foreword/rust-world.md)
-[学习资料](./0-foreword/note.md)
+[学习资料](./0-foreword/learning-materials.md)
 
 ## 第一章
 - [走进 Rust](./1-into-rust/intro.md)
