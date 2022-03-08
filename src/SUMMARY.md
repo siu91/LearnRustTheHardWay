@@ -1,8 +1,8 @@
 # 笨方法学 Rust
 
 [前言](./README.md)
-[Rust 世界](./rust-world.md)
-[学习资料](./note.md)
+[Rust 世界](./0-foreword/hello-rust.md)
+[学习资料](./0-foreword/note.md)
 
 ## 第一章
 - [环境、IDE和命名](./1-into-rust/intro.md)
