@@ -11,12 +11,8 @@
 ### 创建项目：cargo new
 
 ```shell
-siu@localhost code % cd hello_world 
-siu@localhost hello_world % cargo run
-   Compiling hello_world v0.1.0 (/Users/siu/Desktop/LearnRustTheHardWay/code/hello_world)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.94s
-     Running `target/debug/hello_world`
-Hello, world!
+siu@localhost code % cargo new hello_world
+     Created binary (application) `hello_world` package
 ```
 
 项目结构：

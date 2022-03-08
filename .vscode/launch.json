@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Rust Launch",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${fileDirname}/../target/debug/${fileBasenameNoExtension}", 
+            "args": [],
+            "cwd": "${workspaceRoot}",
+        }
+    ]
+}

@@ -10,6 +10,7 @@
   - [安装 IDE：VS Code](./1-into-rust/ide.md)
   - [包管理：Cargo](./1-into-rust/cargo.md)
   - [Hello world!](./1-into-rust/hello-world.md)
+  - [“加餐” VS CODE debug](./1-into-rust/vscode-debug.md)
 
 
 ## 其它

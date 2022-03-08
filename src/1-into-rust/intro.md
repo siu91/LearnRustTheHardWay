@@ -12,4 +12,5 @@
 - [安装 IDE：VS Code](./ide.html)
 - [包管理：Cargo](./cargo.html)
 - [Hello world](./hello-word.html)
+- [“加餐” VS CODE debug](.//vscode-debug.html)
 
