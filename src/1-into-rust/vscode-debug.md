@@ -1,10 +1,12 @@
-# “加餐” VS Code 中 debug 技巧
+# VS Code debug 配置
 
 &#8195;&#8195; debug 永远都是编码中最重要的环节，所以在第一个学习阶段，需要先学习一下这部分。
 
 
 
 ## 配置 Launch 
+
+***注：先安装 CodeLLDB 插件***
 
 `Run & Debug -> Add Configuration`
 
