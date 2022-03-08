@@ -165,6 +165,7 @@
 <p>   Rust语言原本是Mozilla员工Graydon Hoare的私人计划，而Mozilla于2009年开始赞助这个计划，并且在2010年首次公开。也在同一年，其编译器源代码开始由原本的OCaml语言转移到用Rust语言，进行bootstrapping工作，称做“rustc”，并于2011年实际完成。这个可自我编译的编译器在架构上采用了LLVM做为它的后端。</p>
 <p>   第一个有版本号的Rust编译器于2012年1月发布。Rust 1.0是第一个稳定版本，于2015年5月15日发布。</p>
 <p>   Rust在完全开放的情况下开发，并且相当欢迎社区的反馈。在1.0稳定版之前，语言设计也因为透过撰写Servo网页浏览器排版引擎和rustc编译器本身，而有进一步的改善。它虽然由Mozilla资助，但其实是一个共有项目，有很大部分的代码是来自于社区的贡献者。</p>
+<p>   2021年 2 月 9 日，Rust 基金会宣布成立，由 AWS、华为、谷歌、微软和 Mozilla 联合成立，并承诺在两年的时间里，投入 100 万美元的预算，用于 Rust 项目的开发、维护和推广。</p>
 <h2><a class="header" href="#rust-语言的特点" id="rust-语言的特点">Rust 语言的特点</a></h2>
 <ul>
 <li>
@@ -206,7 +207,7 @@ C++：“……”</p>
 <li>有Haskell基础：Haskell系的开发者对Rust语言函数式特性能很好的理解，主要攻克所有权机制和OOP语言特性。</li>
 </ul>
 <h2><a class="header" href="#rust-生态" id="rust-生态">Rust 生态</a></h2>
-<p>Rust 生态日趋丰富，很多基础库和框架都会以 包（crate） 的方式发布到 <a href="https://crates.io">crates.io</a> ，截止目前，crates.io 上面已经有 <strong>78362</strong> 个 crate，总下载量已经达到 <strong>14,058,075,757</strong>次。</p>
+<p>   Rust 生态日趋丰富，很多基础库和框架都会以 包（crate） 的方式发布到 <a href="https://crates.io">crates.io</a> ，截止目前，crates.io 上面已经有 <strong>78362</strong> 个 crate，总下载量已经达到 <strong>14,058,075,757</strong>次。</p>
 <img src="assets/crates-io.png" alt="crates.io" style="zoom:50%;" />
 <h3><a class="header" href="#rust-的应用" id="rust-的应用">Rust 的应用</a></h3>
 <p>Rust 语言可以用于开发：</p>
@@ -216,7 +217,7 @@ C++：“……”</p>
 <li>网络服务器 - Rust 用极低的资源消耗做到安全高效，且具备很强的大规模并发处理能力，十分适合开发普通或极端的服务器程序。</li>
 <li>嵌入式设备 - Rust 同时具有JavaScript 一般的高效开发语法和 C 语言的执行效率，支持底层平台的开发。</li>
 </ul>
-<p>cargo.io上的一些统计信息：</p>
+<p>crates.io 上的一些统计信息：</p>
 <pre><code class="language-stat">命令行工具 （3133 crates）
 no-std 库 （2778 crates）
 开发工具（测试/ debug/linting/性能检测等， 2652 crates）
@@ -228,9 +229,9 @@ API 绑定 （方便 Rust 使用的特定 api 包装，比如 http api、ffi 相
 加密技术（1498 crates）
 异步开发（1487 crates）
 算法 （1200 crates）
+科学计算（包括物理、生物、化学、地理、机器学习等，1100 crates）
 </code></pre>
-<p>科学计算（包括物理、生物、化学、地理、机器学习等，1100 crates）
-除此之外，还有 WebAssembly 、编码、文本处理、并发、GUI、游戏引擎、可视化、模版引擎、解析器、操作系统绑定 等其他分类，也有不少库。</p>
+<p>   除此之外，还有 WebAssembly 、编码、文本处理、并发、GUI、游戏引擎、可视化、模版引擎、解析器、操作系统绑定 等其他分类，也有不少库。</p>
 <h3><a class="header" href="#基础库和工具链" id="基础库和工具链">基础库和工具链</a></h3>
 <p>常用知名基础库和工具链</p>
 <p>其中已经涌现出不少优秀的基础库，都可以在 http://crates.io 首页里看到。这里罗列出一些：</p>
