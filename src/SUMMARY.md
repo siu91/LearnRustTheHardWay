@@ -1,7 +1,7 @@
 # 笨方法学 Rust
 
 [前言](./README.md)
-[Rust 世界](./0-foreword/hello-rust.md)
+[Rust 世界](./0-foreword/rust-world.md)
 [学习资料](./0-foreword/note.md)
 
 ## 第一章
@@ -9,7 +9,7 @@
   - [安装 Rust 环境](./1-into-rust/install.md)
   - [安装 IDE：VS Code](./1-into-rust/ide.md)
   - [包管理：Cargo](./1-into-rust/cargo.md)
-  - [Hello world!](./1-into-rust/hello-word.md)
+  - [Hello world!](./1-into-rust/hello-world.md)
 
 
 ## 其它
