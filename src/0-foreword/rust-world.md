@@ -138,6 +138,13 @@ TUI/GUI 开发：winit / gtk / egui / imgui / yew / cursive / iced / fontdue / t
 ### 试试在线 Playgroud
 Rust 官方在线工具: [https://play.rust-lang.org/](https://play.rust-lang.org/)
 
+### 强烈推荐读一读《Rust 生态版图调研报告》-张汉东
+
+- https://zhuanlan.zhihu.com/p/456451233
+- https://zhuanlan.zhihu.com/p/458046979
+
+
+
 
 ## Ref
  - [Rust 维基百科](https://zh.wikipedia.org/wiki/Rust)

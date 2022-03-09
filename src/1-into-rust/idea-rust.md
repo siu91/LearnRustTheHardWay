@@ -19,3 +19,7 @@
   <img src="assets/rust-plugin.png" alt="rust-plugin" style="zoom:50%;" />
 
 - 重启就可以了
+
+
+
+***以上配置也适用于 CLion***
