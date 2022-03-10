@@ -1,7 +1,5 @@
 # 包管理：Cargo
 
-
-
 &#8195;&#8195; 为了让开发者更方便地相互协作，**Rust** 提供了非常好用的包管理器 Cargo。Rust 代码是以包（crate）为编译和分发单位的，Cargo 提供了很多命令，方便开发者创建、构建、分发、管理自己的包。
 
 &#8195;&#8195; Cargo 就像 Node.js/npm、Java/Maven 一样。
@@ -23,8 +21,6 @@ siu@localhost code % cargo new hello_world
 └── src
     └── main.rs
 ```
-
-
 
 ### 运行：cargo run
 

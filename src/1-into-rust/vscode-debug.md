@@ -2,9 +2,7 @@
 
 &#8195;&#8195; debug 永远都是编码中最重要的环节，所以在第一个学习阶段，需要先学习一下这部分。
 
-
-
-## 配置 Launch 
+## 配置 Launch
 
 ***注：先安装 CodeLLDB 插件***
 
@@ -32,16 +30,12 @@
 
 ![global-debug-setting](assets/global-debug-setting.png)
 
-
-
 ## 设置一个断点，开始 debug
 
 ![debug](assets/debug.png)
 
-
-
 ref
 
-https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/
+<https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/>
 
-https://code.visualstudio.com/docs/editor/variables-reference
+<https://code.visualstudio.com/docs/editor/variables-reference>

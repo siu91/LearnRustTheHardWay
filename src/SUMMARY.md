@@ -5,6 +5,7 @@
 [学习资料](./0-foreword/learning-materials.md)
 
 ## 第一章
+
 - [走进 Rust](./1-into-rust/intro.md)
   - [安装 Rust 环境](./1-into-rust/install.md)
   - [安装 IDE：VS Code](./1-into-rust/ide.md)
@@ -30,5 +31,3 @@
   - [算法和数据结构](./README.md)
   - [Rust 前端：WASM](./README.md)
   - [Yew](./README.md)
-
-## 

@@ -1,5 +1,7 @@
 # 安装配置 IDE
+
 ## 官方推荐的 IDE
+
 [官方](https://www.rust-lang.org/zh-CN/tools)推荐的 IDE 如下：
 
 ![rust-ide](./assets/rust-ide.png)
@@ -20,4 +22,3 @@
 | Better TOML | toml 文件插件  |
 | Error Lens  | 错误展示更友好 |
 | CodeLLDB    | debugger 插件  |
-
