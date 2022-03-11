@@ -67,6 +67,7 @@
 - [cargo 项目结构规范](https://course.rs/cargo/guide/package-layout.html)
 - [Rust 命名规范](https://course.rs/practice/naming.html)
 - [Rust 入门秘籍](https://rust-book.junmajinlong.com)
+- [mdbook 中文文档](https://mdbook.budshome.com)
 
 注：
 
