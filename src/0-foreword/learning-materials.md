@@ -66,6 +66,7 @@
 - [Cargo.toml 中指定依赖](https://course.rs/cargo/reference/specify-deps.html)
 - [cargo 项目结构规范](https://course.rs/cargo/guide/package-layout.html)
 - [Rust 命名规范](https://course.rs/practice/naming.html)
+- [Rust 入门秘籍](https://rust-book.junmajinlong.com)
 
 注：
 
