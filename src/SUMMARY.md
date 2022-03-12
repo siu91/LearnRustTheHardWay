@@ -17,7 +17,7 @@
 ## 第二章
 
 - [基础入门](./2-getting-started/intro.md)
-  - [安装 Rust 环境](./1-into-rust/install.md)
+  - [变量](./2-getting-started/variable.md)
   - [安装 IDE：VS Code](./1-into-rust/ide.md)
   - [包管理：Cargo](./1-into-rust/cargo.md)
   - [Hello world!](./1-into-rust/hello-world.md)
