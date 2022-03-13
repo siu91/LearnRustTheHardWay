@@ -169,7 +169,7 @@
 </ul>
 <h2><a class="header" href="#变量命名" id="变量命名">变量命名</a></h2>
 <p>参考《Rust 语言圣经》</p>
-<h2><a class="header" href="#再理解一下变量绑定" id="再理解一下变量绑定">再理解一下变量绑定</a></h2>
+<h2><a class="header" href="#变量绑定" id="变量绑定">变量绑定</a></h2>
 <p>前面了解到 Rust 用 let 声明变量，<code>let a = 9;</code>,这个过程就叫做”变量绑定“，为什么是绑定，而不是常规理解的赋值，这里先总结这两个原则，跟<strong>所有权</strong>有关：</p>
 <ul>
 <li>
@@ -181,7 +181,26 @@
 <p>这里简单理解为：绑定即是主从的关系，一个对象（值），绑定到它的主人（变量），代表着一种权属关系，即变量拥有值的<strong>所有权</strong>。</p>
 </li>
 </ul>
+<h2><a class="header" href="#变量可变性" id="变量可变性">变量可变性</a></h2>
 <pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn mutable() {
+    let a = 5;
+    // a = 6; // 报错:Cannot assign twice to immutable variable [E0384]
+
+    let mut b = 5;
+    b - 6;
+}
+
+<span class="boring">}
+</span></code></pre></pre>
+<p>通过 <code>mut</code> 声明变量的可变性，显示标记了哪些变量是可变的。</p>
+<p>关于显示用 mut 声明变量的可变性，我认为有点设计上的矛盾，或者说不一致，前面可以看到对于类型 Rust 可以自动推导，不用显示声明，这里可变性是需要显示的声明，我的理解“变量的可变性”还是与安全关系紧密相关。</p>
+<p>从代码阅读上看，类型推导对阅读和review 不友好，特别是离开 IDE 环境。</p>
+<pre><pre class="playground"><code class="language-rust">// 变量：variable
+fn var() {}
+
 
 fn main() {
 	var();

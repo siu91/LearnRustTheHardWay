@@ -159,7 +159,94 @@
 
                 <div id="content" class="content">
                     <main>
-                        
+                        <h2><a class="header" href="#附录-a关键字" id="附录-a关键字">附录 A：关键字</a></h2>
+<p>下面的列表包含 Rust 中正在使用或者以后会用到的关键字。因此，这些关键字不能被用作标识符（除了<a href="#%E5%8E%9F%E7%94%9F%E6%A0%87%E8%AF%86%E7%AC%A6">原生标识符</a>），包括函数、变量、参数、结构体字段、模块、包、常量、宏、静态值、属性、类型、特征或生命周期。</p>
+<h3><a class="header" href="#目前正在使用的关键字" id="目前正在使用的关键字">目前正在使用的关键字</a></h3>
+<p>如下关键字目前有对应其描述的功能。</p>
+<ul>
+<li><code>as</code> - 强制类型转换，或<code>use</code> 和 <code>extern crate</code>包和模块引入语句中的重命名</li>
+<li><code>break</code> - 立刻退出循环</li>
+<li><code>const</code> - 定义常量或原生常量指针（constant raw pointer）</li>
+<li><code>continue</code> - 继续进入下一次循环迭代</li>
+<li><code>crate</code> - 链接外部包</li>
+<li><code>dyn</code> - 动态分发特征对象</li>
+<li><code>else</code> - 作为 <code>if</code> 和 <code>if let</code> 控制流结构的 fallback</li>
+<li><code>enum</code> - 定义一个枚举类型</li>
+<li><code>extern</code> - 链接一个外部包,或者一个宏变量(该变量定义在另外一个包中)</li>
+<li><code>false</code> - 布尔值 <code>false</code></li>
+<li><code>fn</code> - 定义一个函数或 <strong>函数指针类型</strong> (<em>function pointer type</em>)</li>
+<li><code>for</code> - 遍历一个迭代器或实现一个 trait 或者指定一个更高级的生命周期</li>
+<li><code>if</code> - 基于条件表达式的结果来执行相应的分支</li>
+<li><code>impl</code> - 为结构体或者特征实现具体功能</li>
+<li><code>in</code> - <code>for</code> 循环语法的一部分</li>
+<li><code>let</code> - 绑定一个变量</li>
+<li><code>loop</code> - 无条件循环</li>
+<li><code>match</code> - 模式匹配</li>
+<li><code>mod</code> - 定义一个模块</li>
+<li><code>move</code> - 使闭包获取其所捕获项的所有权</li>
+<li><code>mut</code> - 在引用、原生指针或模式绑定中使用，表明变量是可变的</li>
+<li><code>pub</code> - 表示结构体字段、<code>impl</code> 块或模块的公共可见性</li>
+<li><code>ref</code> - 通过引用绑定</li>
+<li><code>return</code> - 从函数中返回</li>
+<li><code>Self</code> - 实现特征类型的类型别名</li>
+<li><code>self</code> - 表示方法本身或当前模块</li>
+<li><code>static</code> - 表示全局变量或在整个程序执行期间保持其生命周期</li>
+<li><code>struct</code> - 定义一个结构体</li>
+<li><code>super</code> - 表示当前模块的父模块</li>
+<li><code>trait</code> - 定义一个特征</li>
+<li><code>true</code> - 布尔值 <code>true</code></li>
+<li><code>type</code> - 定义一个类型别名或关联类型</li>
+<li><code>unsafe</code> - 表示不安全的代码、函数、特征或实现</li>
+<li><code>use</code> - 在当前代码范围内(模块或者花括号对)引入外部的包、模块等</li>
+<li><code>where</code> - 表示一个约束类型的从句</li>
+<li><code>while</code> - 基于一个表达式的结果判断是否继续循环</li>
+</ul>
+<h3><a class="header" href="#保留做将来使用的关键字" id="保留做将来使用的关键字">保留做将来使用的关键字</a></h3>
+<p>如下关键字没有任何功能，不过由 Rust 保留以备将来的应用。</p>
+<ul>
+<li><code>abstract</code></li>
+<li><code>async</code></li>
+<li><code>await</code></li>
+<li><code>become</code></li>
+<li><code>box</code></li>
+<li><code>do</code></li>
+<li><code>final</code></li>
+<li><code>macro</code></li>
+<li><code>override</code></li>
+<li><code>priv</code></li>
+<li><code>try</code></li>
+<li><code>typeof</code></li>
+<li><code>unsized</code></li>
+<li><code>virtual</code></li>
+<li><code>yield</code></li>
+</ul>
+<h3><a class="header" href="#原生标识符" id="原生标识符">原生标识符</a></h3>
+<p>原生标识符（Raw identifiers）允许你使用通常不能使用的关键字，其带有 <code>r#</code> 前缀。</p>
+<p>例如，<code>match</code> 是关键字。如果尝试编译如下使用 <code>match</code> 作为名字的函数：</p>
+<pre><code class="language-rust ignore does_not_compile">fn match(needle: &amp;str, haystack: &amp;str) -&gt; bool {
+    haystack.contains(needle)
+}
+</code></pre>
+<p>会得到这个错误：</p>
+<pre><code class="language-text">error: expected identifier, found keyword `match`
+ --&gt; src/main.rs:4:4
+  |
+4 | fn match(needle: &amp;str, haystack: &amp;str) -&gt; bool {
+  |    ^^^^^ expected identifier, found keyword
+</code></pre>
+<p>该错误表示你不能将关键字 <code>match</code> 用作函数标识符。你可以使用原生标识符将 <code>match</code> 作为函数名称使用：</p>
+<p><span class="filename">文件名: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn r#match(needle: &amp;str, haystack: &amp;str) -&gt; bool {
+    haystack.contains(needle)
+}
+
+fn main() {
+    assert!(r#match(&quot;foo&quot;, &quot;foobar&quot;));
+}
+</code></pre></pre>
+<p>此代码编译没有任何错误。注意 <code>r#</code> 前缀需同时用于函数名定义和 <code>main</code> 函数中的调用。</p>
+<p>原生标识符允许使用你选择的任何单词作为标识符，即使该单词恰好是保留关键字。 此外，原生标识符允许你使用其它 Rust 版本编写的库。比如，<code>try</code> 在 Rust 2015 edition 中不是关键字，却在 Rust 2018 edition 是关键字。所以如果用 2015 edition 编写的库中带有 <code>try</code> 函数，在 2018 edition 中调用时就需要使用原始标识符语法，在这里是 <code>r#try</code>。</p>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
