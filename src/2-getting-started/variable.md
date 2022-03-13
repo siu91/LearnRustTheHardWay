@@ -3,7 +3,7 @@
 ## 重要知识
 
 - 变量：variable，不多解释，和所有语言的定义一致
-- 绑定：bind，可以先理解为“赋值”，但不完全是这样的
+- 变量绑定：variable bindings，可以先理解为“赋值”，但不完全是这样的
 - 遮蔽：bind shadow
 - 解构
 
@@ -27,22 +27,28 @@
 ```rust
 {{#include ../../code/main/src/main.rs:mutable}}
 ```
+
 通过 `mut` 声明变量的可变性，显示标记了哪些变量是可变的。
 
 关于显示用 mut 声明变量的可变性，我认为有点设计上的矛盾，或者说不一致，前面可以看到对于类型 Rust 可以自动推导，不用显示声明，这里可变性是需要显示的声明，我的理解“变量的可变性”还是与安全关系紧密相关。
 
 从代码阅读上看，类型推导对阅读和review 不友好，特别是离开 IDE 环境。
 
-
-
-
-
-
-
+## 变量解构
 
 ```rust
-{{#include ../../code/main/src/main.rs:var}}
+{{#include ../../code/main/src/main.rs:destructure}}
 {{#include ../../code/main/src/.template:1:2}}
-	var();
+ destructure();
 {{#include ../../code/main/src/.template:3:3}}
+```
+
+关于解构模式匹配（pattern match）的内容放在后面再学习，看了部分的内容不是很理解.
+
+## 不可变变量与常量
+
+  常量声明使用 `const`，必需标注类型，不能使用 `let`；不仅默认是不可变，生命周期内都不允许改变；常量命名是全部大写。
+
+```rust
+{{#include ../../code/main/src/main.rs:const}}
 ```

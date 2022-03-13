@@ -54,7 +54,7 @@ fn some_syntax() {
     // {} 用于占位，区别于其它语言 %d %s
     println!("可变 m1={}", m1);
     m1 = 4;
-    print!("可变 m1={}", m1);
+    println!("可变 m1={}", m1);
 }
 
 // 定义一个函数：参数，返回值
@@ -64,12 +64,6 @@ fn add(a: i32, b: i32) -> i32 {
     a + b
 }
 // ANCHOR_END: some_syntax
-
-// ANCHOR: var
-// 变量：variable
-fn var() {}
-
-// ANCHOR_END: var
 
 
 // ANCHOR: mutable
@@ -83,11 +77,25 @@ fn mutable() {
 
 // ANCHOR_END: mutable
 
+// ANCHOR: destructure
+fn destructure() {
+    let (a, mut b): (bool, bool) = (true, false);
+    println!("a={},b={}", a, b);
+    b = true;
+    println!("a={},b={}", a, b);
+    assert_eq!(a, b)
+}
+// ANCHOR_END: destructure
+
+// ANCHOR: const
+const MAX_LEVEL: i32 = 4;
+// ANCHOR_END: const
+
 fn main() {
     hello_world();
     data_types();
     some_syntax();
-    var();
+    destructure();
 }
 
 
