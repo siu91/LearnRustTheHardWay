@@ -18,11 +18,10 @@
 
 - [基础入门](./2-getting-started/intro.md)
   - [变量](./2-getting-started/variable.md)
-  - [安装 IDE：VS Code](./1-into-rust/ide.md)
-  - [包管理：Cargo](./1-into-rust/cargo.md)
-  - [Hello world!](./1-into-rust/hello-world.md)
-  - [VS CODE debug 配置](./1-into-rust/vscode-debug.md)
-  - [IDEA Rust 配置](./1-into-rust/idea-rust.md)
+  - [数据类型](./2-getting-started/data-types/intro.md)
+    - [标量类型](./2-getting-started/data-types/scare-types.md)
+    - [单元类型](./2-getting-started/data-types/unit.md)
+    - [复合类型](./2-getting-started/data-types/compound-types.md)
 
 ## 做一个项目
 
