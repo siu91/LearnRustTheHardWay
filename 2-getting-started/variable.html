@@ -163,7 +163,7 @@
 <h2><a class="header" href="#重要知识" id="重要知识">重要知识</a></h2>
 <ul>
 <li>变量：variable，不多解释，和所有语言的定义一致</li>
-<li>绑定：bind，可以先理解为“赋值”，但不完全是这样的</li>
+<li>变量绑定：variable bindings，可以先理解为“赋值”，但不完全是这样的</li>
 <li>遮蔽：bind shadow</li>
 <li>解构</li>
 </ul>
@@ -198,14 +198,28 @@
 <p>通过 <code>mut</code> 声明变量的可变性，显示标记了哪些变量是可变的。</p>
 <p>关于显示用 mut 声明变量的可变性，我认为有点设计上的矛盾，或者说不一致，前面可以看到对于类型 Rust 可以自动推导，不用显示声明，这里可变性是需要显示的声明，我的理解“变量的可变性”还是与安全关系紧密相关。</p>
 <p>从代码阅读上看，类型推导对阅读和review 不友好，特别是离开 IDE 环境。</p>
-<pre><pre class="playground"><code class="language-rust">// 变量：variable
-fn var() {}
-
+<h2><a class="header" href="#变量解构" id="变量解构">变量解构</a></h2>
+<pre><pre class="playground"><code class="language-rust">fn destructure() {
+    let (a, mut b): (bool, bool) = (true, false);
+    println!(&quot;a={},b={}&quot;, a, b);
+    b = true;
+    println!(&quot;a={},b={}&quot;, a, b);
+    assert_eq!(a, b)
+}
 
 fn main() {
-	var();
+ destructure();
 }
 </code></pre></pre>
+<p>关于解构模式匹配（pattern match）的内容放在后面再学习，看了部分的内容不是很理解.</p>
+<h2><a class="header" href="#不可变变量与常量" id="不可变变量与常量">不可变变量与常量</a></h2>
+<p>常量声明使用 <code>const</code>，必需标注类型，不能使用 <code>let</code>；不仅默认是不可变，生命周期内都不允许改变；常量命名是全部大写。</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>const MAX_LEVEL: i32 = 4;
+<span class="boring">}
+</span></code></pre></pre>
 
                     </main>
 
