@@ -65,10 +65,29 @@ fn add(a: i32, b: i32) -> i32 {
 }
 // ANCHOR_END: some_syntax
 
+// ANCHOR: var
+// 变量：variable
+fn var() {}
+
+// ANCHOR_END: var
+
+
+// ANCHOR: mutable
+fn mutable() {
+    let a = 5;
+    // a = 6; // 报错:Cannot assign twice to immutable variable [E0384]
+
+    let mut b = 5;
+    b - 6;
+}
+
+// ANCHOR_END: mutable
+
 fn main() {
     hello_world();
     data_types();
     some_syntax();
+    var();
 }
 
 
