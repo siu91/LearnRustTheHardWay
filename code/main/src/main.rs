@@ -91,11 +91,59 @@ fn destructure() {
 const MAX_LEVEL: i32 = 4;
 // ANCHOR_END: const
 
+// ANCHOR: int_type
+// 使用 wrapping_* 方法在所有模式下都按照补码循环溢出规则处理，例如 wrapping_add
+// 如果使用 checked_* 方法时发生溢出，则返回 None 值
+// 使用 overflowing_* 方法返回该值和一个指示是否存在溢出的布尔值
+// 使用 saturating_* 方法使值达到最小值或最大值
+fn int_type() {
+    // deal with wrapping.
+    println!("{} {} {} {}",
+             200u8.wrapping_add(57),  // 1.
+             200u8.overflowing_add(57).0,  // (1, true) -> 1.
+             if 200u8.checked_add(57) == None { "overflow" } else { "not overflow" },
+             200u8.saturating_add(57),  // 255 (bound to the edge values).
+    );
+
+    let one_million: i64 = 1_000_000;
+    println!("{}", one_million.pow(2));
+}
+// ANCHOR_END: int_type
+
+// ANCHOR: float_type
+fn float_type() {
+    let f1 = 32.4;
+    let f2: f32 = 34.8;
+
+    // 四则运算
+    let add = 5 + 6;
+    let sub = 3.2 - 1.6;
+    let mul = 3 * 4;
+    let div = 5 / 6;
+    // 取余
+    let remainder = 41 % 5;
+
+    // let i = 3 + 3.4; // 不允许不同类型的运算： no implementation for `{integer} + {float}`
+
+    // 定义一个 f32 的数组
+    let arr = [31.0, 31.0_f32, 31.0f32];
+    // 打印保留两位小数
+    println!("{:.2}", arr[0])
+}
+
+//ANCHOR_END: float_type
+
+fn float_error() {
+    let abc: (f32, f32, f32) = (30.1, 30.1, 30.1);
+}
+
 fn main() {
     hello_world();
     data_types();
     some_syntax();
     destructure();
+    int_type();
+    float_type();
 }
 
 
