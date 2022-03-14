@@ -159,7 +159,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#基本类型" id="基本类型">基本类型</a></h1>
+                        <h1><a class="header" href="#数据类型" id="数据类型">数据类型</a></h1>
 <p>Rust 是静态类型（statically typed）语言，也就是说在编译时就必须知道所有变量的类型。当然<strong>类型推断</strong>可以帮我们标注默认的类型。</p>
 <h2><a class="header" href="#标量类型scare-type" id="标量类型scare-type">标量类型（Scare Type）</a></h2>
 <ul>
@@ -171,13 +171,14 @@
 <h2><a class="header" href="#单元类型unit-type" id="单元类型unit-type">单元类型（Unit Type）</a></h2>
 <p>是一种特殊的类型，即 () ，其唯一的值也是 ()。</p>
 <ul>
-<li>unit type是一个类型，有且仅有一个值，都写成小括号()
-单元类型()类似c/c++/java语言中的void。当一个函数并不需要返回值的时候，c/c++/java中函数返回void，rust则返回()。但语法层面上，void仅仅只是一个类型，该类型没有任何值;而单位类型()既是一个类型，同时又是该类型的值。</li>
+<li>unit type是一个类型，有且仅有一个值，都写成小括号()；
+类似c/c++/java语言中的void。当一个函数并不需要返回值的时候，c/c++/java中函数返回void，rust则返回()。但语法层面上，void仅仅只是一个类型，该类型没有任何值;而单位类型()既是一个类型，同时又是该类型的值。</li>
 <li>单元类型()也类似c/c++/java中的null，但却有很大不同。 null是一个特殊值，可以赋给不可类型的值，例如java中的对象，c中指向struct实例的指针，c++中的对象指针。但在rust中，()不可以赋值给除单元类型外的其它的类型的变量，()只能赋值给()。</li>
 <li>Rust标准库中使用单元类型()的一个例子是HashSet。一个HashSet只不过是HashMap的一个非常简单地包裹，写作：HashMap&lt;T, ()&gt;。HashMap的第二个泛型类型参数即用了单元类型()</li>
 <li>可以用Result&lt;(), MyErrorType&gt;代替Option，某些开发者认为Result&lt;(), MyErrorType&gt;语义上能更简明地表示一个“结果”。</li>
 </ul>
 <h2><a class="header" href="#复合类型compound-types" id="复合类型compound-types">复合类型（Compound Types）</a></h2>
+<p>复合类型（Compound types）可以将多个值组合成一个类型。Rust 有两个原生的复合类型：元组（tuple）和数组（array）。</p>
 
                     </main>
 
