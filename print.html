@@ -830,7 +830,8 @@ fn main() {
 <li><strong>浮点数往往是你想要数字的近似表达</strong> 浮点数类型是基于二进制实现的，但是我们想要计算的数字往往是基于十进制，例如 <code>0.1</code> 在二进制上并不存在精确的表达形式，但是在十进制上就存在。这种不匹配性导致一定的歧义性，更多的，虽然浮点数能代表真实的数值，但是由于底层格式问题，它往往受限于定长的浮点数精度，如果你想要表达完全精准的真实数字，只有使用无限精度的浮点数才行</li>
 <li><strong>浮点数在某些特性上是反直觉的</strong> 例如大家都会觉得浮点数可以进行比较，对吧？是的，它们确实可以使用 <code>&gt;</code>，<code>&gt;=</code> 等进行比较，但是在某些场景下，这种直觉上的比较特性反而会害了你。因为 <code>f32</code> ， <code>f64</code> 上的比较运算实现的是 <code>std::cmp::PartialEq</code> 特征(类似其他语言的接口)，但是并没有实现 <code>std::cmp::Eq</code> 特征，但是后者在其它数值类型上都有定义，说了这么多，可能大家还是云里雾里，用一个例子来举例：</li>
 </ol>
-<p>Rust 的 <code>HashMap</code> 数据结构，是一个 KV 类型的 Hash Map 实现，它对于 <code>K</code> 没有特定类型的限制，但是要求能用作 <code>K</code> 的类型必须实现了 <code>std::cmp::Eq</code> 特征，因此这意味着你无法使用浮点数作为 <code>HashMap</code> 的 <code>Key</code>，来存储键值对，但是作为对比，Rust 的整数类型、字符串类型、布尔类型都实现了该特征，因此可以作为 <code>HashMap</code> 的 <code>Key</code>。</p>
+<p>Rust 的 <code>HashMap</code> 数据结构，是一个 KV 类型的 HashMap 实现，它对于 <code>K</code> 没有特定类型的限制，但是要求能用作 <code>K</code> 的类型必须实现了 <code>std::cmp::Eq</code> 特征，因此这意味着你无法使用浮点数作为 <code>HashMap</code> 的 <code>Key</code>，来存储键值对，但是作为对比，Rust 的整数类型、字符串类型、布尔类型都实现了该特征，因此可以作为 <code>HashMap</code> 的 <code>Key</code>。</p>
+<p>这个问题和 Java 中用 Float 作为 HashMap 的 Key 类似，equal() 调用 hashCode() 实现。</p>
 <p>为了避免上面说的两个陷阱，你需要遵守以下准则：</p>
 <ul>
 <li>避免在浮点数上测试相等性</li>
