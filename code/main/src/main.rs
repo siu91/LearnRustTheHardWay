@@ -137,6 +137,31 @@ fn float_error() {
     let abc: (f32, f32, f32) = (30.1, 30.1, 30.1);
 }
 
+fn bool_type() {
+    // ANCHOR: bool
+    let t = true;
+    let f: bool = false; // 显式声明
+    // ANCHOR_END: bool
+}
+
+// ANCHOR: char
+fn char_type() {
+    let emoji: char = '😊';
+    let cn = '中';
+    println!("字符占{}个字节", std::mem::size_of_val(&emoji))
+}
+// ANCHOR_END: char
+
+
+// ANCHOR: tuple
+fn tuple_type() {
+    let tup: (i32, f32, u8) = (32, 32.1, 32);
+    // 使用"模式匹配"来"解构"元组
+    let (x, y, z) = tup;
+    println!("y 的值：{}", y)
+}
+// ANCHOR_END: tuple
+
 fn main() {
     hello_world();
     data_types();
@@ -144,6 +169,8 @@ fn main() {
     destructure();
     int_type();
     float_type();
+    char_type();
+    tuple_type();
 }
 
 

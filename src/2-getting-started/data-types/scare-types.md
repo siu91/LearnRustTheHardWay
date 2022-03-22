@@ -52,7 +52,7 @@ Rust 中的整型字面值
 {{#include ../../../code/main/src/.template:3:3}}
 ```
 
-## 浮点型
+## 浮点型（f32/f64）
 
 知识点：
 
@@ -81,3 +81,23 @@ Rust 的 `HashMap` 数据结构，是一个 KV 类型的 HashMap 实现，它对
 
 - 避免在浮点数上测试相等性
 - 当结果在数学上可能存在未定义时，需要格外的小心
+
+## 布尔型（bool）
+
+布尔类型使用 `bool` 声明，只有 `true` 和 `fasle` 两个值，占 1 个字节。
+
+
+```rust
+{{#include ../../../code/main/src/main.rs:bool}}
+```
+
+## 字符类型（char） 
+Rust 的字符不仅仅是 ASCII，所有的 Unicode 值都可以作为 Rust 字符，包括单个的中文、日文、韩文、emoji 表情符号等等，都是合法的字符类型。Unicode 值的范围从 `U+0000 ~ U+D7FF` 和 `U+E000 ~ U+10FFFF`。
+
+由于 Unicode 都是 4 个字节编码，因此字符类型也是占用 4 个字节：
+```rust
+{{#include ../../../code/main/src/main.rs:char}}
+{{#include ../../../code/main/src/.template:1:2}}
+ char_type();
+{{#include ../../../code/main/src/.template:3:3}}
+```
