@@ -220,7 +220,7 @@ fn main() {
  int_type();
 }
 </code></pre></pre>
-<h2><a class="header" href="#浮点型" id="浮点型">浮点型</a></h2>
+<h2><a class="header" href="#浮点型f32f64" id="浮点型f32f64">浮点型（f32/f64）</a></h2>
 <p>知识点：</p>
 <ul>
 <li>在 Rust 中浮点类型数字也有两种基本类型： <code>f32</code> 和 <code>f64</code>，分别为 32 位和 64 位大小。</li>
@@ -264,6 +264,28 @@ fn main() {
 <li>避免在浮点数上测试相等性</li>
 <li>当结果在数学上可能存在未定义时，需要格外的小心</li>
 </ul>
+<h2><a class="header" href="#布尔型bool" id="布尔型bool">布尔型（bool）</a></h2>
+<p>布尔类型使用 <code>bool</code> 声明，只有 <code>true</code> 和 <code>fasle</code> 两个值，占 1 个字节。</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    let t = true;
+    let f: bool = false; // 显式声明
+<span class="boring">}
+</span></code></pre></pre>
+<h2><a class="header" href="#字符类型char" id="字符类型char">字符类型（char）</a></h2>
+<p>Rust 的字符不仅仅是 ASCII，所有的 Unicode 值都可以作为 Rust 字符，包括单个的中文、日文、韩文、emoji 表情符号等等，都是合法的字符类型。Unicode 值的范围从 <code>U+0000 ~ U+D7FF</code> 和 <code>U+E000 ~ U+10FFFF</code>。</p>
+<p>由于 Unicode 都是 4 个字节编码，因此字符类型也是占用 4 个字节：</p>
+<pre><pre class="playground"><code class="language-rust">fn char_type() {
+    let emoji: char = '😊';
+    let cn = '中';
+    println!(&quot;字符占{}个字节&quot;, std::mem::size_of_val(&amp;emoji))
+}
+
+fn main() {
+ char_type();
+}
+</code></pre></pre>
 
                     </main>
 

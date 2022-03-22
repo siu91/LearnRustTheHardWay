@@ -793,7 +793,7 @@ fn main() {
  int_type();
 }
 </code></pre></pre>
-<h2><a class="header" href="#浮点型" id="浮点型">浮点型</a></h2>
+<h2><a class="header" href="#浮点型f32f64" id="浮点型f32f64">浮点型（f32/f64）</a></h2>
 <p>知识点：</p>
 <ul>
 <li>在 Rust 中浮点类型数字也有两种基本类型： <code>f32</code> 和 <code>f64</code>，分别为 32 位和 64 位大小。</li>
@@ -837,8 +837,53 @@ fn main() {
 <li>避免在浮点数上测试相等性</li>
 <li>当结果在数学上可能存在未定义时，需要格外的小心</li>
 </ul>
+<h2><a class="header" href="#布尔型bool" id="布尔型bool">布尔型（bool）</a></h2>
+<p>布尔类型使用 <code>bool</code> 声明，只有 <code>true</code> 和 <code>fasle</code> 两个值，占 1 个字节。</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    let t = true;
+    let f: bool = false; // 显式声明
+<span class="boring">}
+</span></code></pre></pre>
+<h2><a class="header" href="#字符类型char" id="字符类型char">字符类型（char）</a></h2>
+<p>Rust 的字符不仅仅是 ASCII，所有的 Unicode 值都可以作为 Rust 字符，包括单个的中文、日文、韩文、emoji 表情符号等等，都是合法的字符类型。Unicode 值的范围从 <code>U+0000 ~ U+D7FF</code> 和 <code>U+E000 ~ U+10FFFF</code>。</p>
+<p>由于 Unicode 都是 4 个字节编码，因此字符类型也是占用 4 个字节：</p>
+<pre><pre class="playground"><code class="language-rust">fn char_type() {
+    let emoji: char = '😊';
+    let cn = '中';
+    println!(&quot;字符占{}个字节&quot;, std::mem::size_of_val(&amp;emoji))
+}
+
+fn main() {
+ char_type();
+}
+</code></pre></pre>
 <h1><a class="header" href="#单元类型" id="单元类型">单元类型</a></h1>
+<p>是一种特殊的类型，即 () ，其唯一的值也是 ()。</p>
+<ul>
+<li>unit type是一个类型，有且仅有一个值，都写成小括号()；
+类似c/c++/java语言中的void。当一个函数并不需要返回值的时候，c/c++/java中函数返回void，rust则返回()。但语法层面上，void仅仅只是一个类型，该类型没有任何值;而单位类型()既是一个类型，同时又是该类型的值。</li>
+<li>单元类型()也类似c/c++/java中的null，但却有很大不同。 null是一个特殊值，可以赋给不可类型的值，例如java中的对象，c中指向struct实例的指针，c++中的对象指针。但在rust中，()不可以赋值给除单元类型外的其它的类型的变量，()只能赋值给()。</li>
+<li>Rust标准库中使用单元类型()的一个例子是HashSet。一个HashSet只不过是HashMap的一个非常简单地包裹，写作：HashMap&lt;T, ()&gt;。HashMap的第二个泛型类型参数即用了单元类型()</li>
+<li>可以用Result&lt;(), MyErrorType&gt;代替Option，某些开发者认为Result&lt;(), MyErrorType&gt;语义上能更简明地表示一个“结果”。</li>
+</ul>
 <h1><a class="header" href="#复合类型" id="复合类型">复合类型</a></h1>
+<p>复合类型（Compound types）可以将多个值组合成一个类型。Rust 有两个原生的复合类型：元组（tuple）和数组（array）。</p>
+<h2><a class="header" href="#元组类型tuple" id="元组类型tuple">元组类型（tuple）</a></h2>
+<p>元组是一个将多个其他类型的值组合进一个复合类型的主要方式。元组<strong>长度固定</strong>：一旦声明，其长度不会增大或缩小。</p>
+<p>元组中的每一个位置都有一个类型，而且这些不同值的类型也不必是相同的：</p>
+<pre><pre class="playground"><code class="language-rust">fn tuple_type() {
+    let tup: (i32, f32, u8) = (32, 32.1, 32);
+    // 使用&quot;模式匹配&quot;来&quot;解构&quot;元组
+    let (x, y, z) = tup;
+    println!(&quot;y 的值：{}&quot;, y)
+}
+
+fn main() {
+ tuple_type();
+}
+</code></pre></pre>
 <h1><a class="header" href="#实战写一个-google-translate-app" id="实战写一个-google-translate-app">实战：写一个 Google Translate App</a></h1>
 <h2><a class="header" href="#todo" id="todo">TODO</a></h2>
 <ul>

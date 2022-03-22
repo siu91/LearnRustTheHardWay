@@ -160,6 +160,21 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#复合类型" id="复合类型">复合类型</a></h1>
+<p>复合类型（Compound types）可以将多个值组合成一个类型。Rust 有两个原生的复合类型：元组（tuple）和数组（array）。</p>
+<h2><a class="header" href="#元组类型tuple" id="元组类型tuple">元组类型（tuple）</a></h2>
+<p>元组是一个将多个其他类型的值组合进一个复合类型的主要方式。元组<strong>长度固定</strong>：一旦声明，其长度不会增大或缩小。</p>
+<p>元组中的每一个位置都有一个类型，而且这些不同值的类型也不必是相同的：</p>
+<pre><pre class="playground"><code class="language-rust">fn tuple_type() {
+    let tup: (i32, f32, u8) = (32, 32.1, 32);
+    // 使用&quot;模式匹配&quot;来&quot;解构&quot;元组
+    let (x, y, z) = tup;
+    println!(&quot;y 的值：{}&quot;, y)
+}
+
+fn main() {
+ tuple_type();
+}
+</code></pre></pre>
 
                     </main>
 
