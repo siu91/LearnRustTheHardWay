@@ -9,6 +9,7 @@ title = "笨方法学 Rust（Learn Rust the hard way）"
 [output.html]
 git-repository-url = "https://github.com/siu91/LearnRustTheHardWay"
 edit-url-template = "https://github.com/siu91/LearnRustTheHardWay/edit/main/{path}"
+additional-css = ["theme/style.css"]
 
 [output.html.playground]
 editable = true
