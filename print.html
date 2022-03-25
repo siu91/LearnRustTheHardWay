@@ -44,8 +44,6 @@
 
         
 
-        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -59,11 +57,9 @@
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
-
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
                 }
-
                 if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
                     localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
                 }
@@ -1493,7 +1489,7 @@ std = []
 <p>它们都使用了 <code>谓语-宾语-错误</code> 的词序，如果我们想要表达一个网络地址无法分析的错误，由于词序一致性的原则，命名应该如下 <code>ParseAddrError</code>，而不是 <code>AddrParseError</code>。</p>
 <p>词序和个人习惯有很大关系，想要注意的是，你可以选择合适的词序，但是要在包的范畴内保持一致性，就如标准库中的包一样。</p>
 
-                        <div id="gitalk-container"></div>
+                        <div id="giscus-container"></div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -1548,8 +1544,16 @@ std = []
         <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" charset="utf-8">
+        var pagePath = "print.md"
+        </script>
+
 
         <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="assets/custom.js"></script>
+        
+        <script type="text/javascript" src="assets/showBigPicture.js"></script>
         
 
         
