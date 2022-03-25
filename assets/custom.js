@@ -102,10 +102,10 @@ var initAll = function () {
     script.src = "https://giscus.app/client.js";
     script.async = true;
     script.crossOrigin = "anonymous";
-    script.setAttribute("data-repo", "siu91/LearnRustTheHardWay");
-    script.setAttribute("data-repo-id", "R_kgDOG9UIdg");
+    script.setAttribute("data-repo", "siu91/notebook");
+    script.setAttribute("data-repo-id", "R_kgDOHDjdeA");
     script.setAttribute("data-category", "Announcements");
-    script.setAttribute("data-category-id", "DIC_kwDOG9UIds4COQnQ");
+    script.setAttribute("data-category-id", "DIC_kwDOHDjdeM4COQsM");
     script.setAttribute("data-mapping", "specific");
     script.setAttribute("data-term", pagePath);
     script.setAttribute("data-reactions-enabled", "1");
