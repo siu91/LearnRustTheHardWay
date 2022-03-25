@@ -23,14 +23,14 @@
     - [单元类型](./2-getting-started/data-types/unit.md)
     - [复合类型](./2-getting-started/data-types/compound-types.md)
 
-## 做一个项目
+## 写一个脚手架
 
-- [实战：写一个 Google Translate App（TODO）](./5-in-practice1/intro.md)
-  - [技术调研](./1-into-rust/install.md)
-  - [功能设计](./1-into-rust/ide.md)
-  - [架构设计](./1-into-rust/cargo.md)
-  - [编码实现](./1-into-rust/hello-world.md)
-  - [CI 和 发布](./1-into-rust/vscode-debug.md)
+- [实战：写一个 Rust 开发脚手架（TODO）](./5-in-practice1/intro.md)
+  - [Rust desk 脚手架](./1-into-rust/install.md)
+  - [Rust Web 脚手架](./1-into-rust/ide.md)
+  - [Rust CMD Tool 脚手架](./1-into-rust/cargo.md)
+
+## 写一个工具
 
 - [实战：写一个类 sqlbench 的 sql 测试工具（TODO）](./5-in-practice1/intro.md)
   - [技术调研](./1-into-rust/install.md)
@@ -39,13 +39,14 @@
   - [编码实现](./1-into-rust/hello-world.md)
   - [CI 和 发布](./1-into-rust/vscode-debug.md)
 
-## 写一个脚手架
+## 写一个桌面 App
 
-- [实战：写一个 Rust 开发脚手架（TODO）](./5-in-practice1/intro.md)
-  - [Rust desk 脚手架](./1-into-rust/install.md)
-  - [Rust Web 脚手架](./1-into-rust/ide.md)
-  - [Rust CMD Tool 脚手架](./1-into-rust/cargo.md)
-
+- [实战：写一个 Google Translate App（TODO）](./5-in-practice1/intro.md)
+  - [技术调研](./1-into-rust/install.md)
+  - [功能设计](./1-into-rust/ide.md)
+  - [架构设计](./1-into-rust/cargo.md)
+  - [编码实现](./1-into-rust/hello-world.md)
+  - [CI 和 发布](./1-into-rust/vscode-debug.md)
 
 ## 其它
 
