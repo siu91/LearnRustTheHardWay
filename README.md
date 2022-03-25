@@ -29,3 +29,14 @@
 &#8195;&#8195; 特别相信一句话：There is a big difference between knowing the way and walking the way。
 
 &#8195;&#8195; 所以还是需要自己走一遍。
+
+## TODO
+
+- [x] 学习 Rust 基础
+- [ ] 学习 Rust 高级特性
+- [ ] 学习 Rust 单元测试
+- [ ] 学习 Rust 工具链
+- [ ] 学习 Rust 最佳实践
+- [ ] 实战：搭建 Rust 开发脚手架
+- [ ] 实战：开发一个 CMD 工具 （类sqlbench）
+- [ ] 实战：开发一个桌面工具软件
