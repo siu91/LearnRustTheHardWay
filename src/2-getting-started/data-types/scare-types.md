@@ -62,7 +62,7 @@ Rust 中的整型字面值
 ```rust
 {{#include ../../../code/main/src/main.rs:float_type}}
 {{#include ../../../code/main/src/.template:1:2}}
- flaot_type();
+ float_type();
 {{#include ../../../code/main/src/.template:3:3}}
 ```
 
