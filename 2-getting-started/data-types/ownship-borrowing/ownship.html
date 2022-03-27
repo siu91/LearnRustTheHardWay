@@ -1,0 +1,346 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>所有权 - 笨方法学 Rust（Learn Rust the hard way）</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="../../../theme/style.css">
+        
+
+        
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../../index.html">前言</a></li><li class="chapter-item expanded affix "><a href="../../../0-foreword/rust-world.html">Rust 世界</a></li><li class="chapter-item expanded affix "><a href="../../../0-foreword/learning-materials.html">学习资料</a></li><li class="chapter-item expanded "><a href="../../../1-into-rust/intro.html"><strong aria-hidden="true">1.</strong> 走进 Rust</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../1-into-rust/install.html"><strong aria-hidden="true">1.1.</strong> 安装 Rust 环境</a></li><li class="chapter-item "><a href="../../../1-into-rust/ide.html"><strong aria-hidden="true">1.2.</strong> 安装 IDE：VS Code</a></li><li class="chapter-item "><a href="../../../1-into-rust/cargo.html"><strong aria-hidden="true">1.3.</strong> 包管理：Cargo</a></li><li class="chapter-item "><a href="../../../1-into-rust/hello-world.html"><strong aria-hidden="true">1.4.</strong> Hello world!</a></li><li class="chapter-item "><a href="../../../1-into-rust/vscode-debug.html"><strong aria-hidden="true">1.5.</strong> VS CODE debug 配置</a></li><li class="chapter-item "><a href="../../../1-into-rust/idea-rust.html"><strong aria-hidden="true">1.6.</strong> IDEA Rust 配置</a></li></ol></li><li class="chapter-item expanded "><a href="../../../2-getting-started/intro.html"><strong aria-hidden="true">2.</strong> 基础入门</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../2-getting-started/variable.html"><strong aria-hidden="true">2.1.</strong> 变量</a></li><li class="chapter-item expanded "><a href="../../../2-getting-started/data-types/intro.html"><strong aria-hidden="true">2.2.</strong> 数据类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../2-getting-started/data-types/scare-types.html"><strong aria-hidden="true">2.2.1.</strong> 标量类型</a></li><li class="chapter-item "><a href="../../../2-getting-started/data-types/unit.html"><strong aria-hidden="true">2.2.2.</strong> 单元类型</a></li><li class="chapter-item expanded "><a href="../../../2-getting-started/data-types/ownship-borrowing/intro.html"><strong aria-hidden="true">2.2.3.</strong> 所有权和借用</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../2-getting-started/data-types/ownship-borrowing/ownship.html" class="active"><strong aria-hidden="true">2.2.3.1.</strong> 所有权</a></li><li class="chapter-item "><a href="../../../2-getting-started/data-types/ownship-borrowing/references-borrowing.html"><strong aria-hidden="true">2.2.3.2.</strong> 引用和借用</a></li></ol></li><li class="chapter-item "><a href="../../../2-getting-started/data-types/compound-types/intro.html"><strong aria-hidden="true">2.2.4.</strong> 复合类型</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../2-getting-started/data-types/compound-types/string-slice.html"><strong aria-hidden="true">2.2.4.1.</strong> 字符串和切片</a></li><li class="chapter-item "><a href="../../../2-getting-started/data-types/compound-types/tuple.html"><strong aria-hidden="true">2.2.4.2.</strong> 元组</a></li><li class="chapter-item "><a href="../../../2-getting-started/data-types/compound-types/array.html"><strong aria-hidden="true">2.2.4.3.</strong> 数组</a></li><li class="chapter-item "><a href="../../../2-getting-started/data-types/compound-types/struct.html"><strong aria-hidden="true">2.2.4.4.</strong> 结构体</a></li><li class="chapter-item "><a href="../../../2-getting-started/data-types/compound-types/enum.html"><strong aria-hidden="true">2.2.4.5.</strong> 枚举</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../../2-getting-started/function.html"><strong aria-hidden="true">2.3.</strong> 函数</a></li><li class="chapter-item "><a href="../../../2-getting-started/comments.html"><strong aria-hidden="true">2.4.</strong> 注释</a></li><li class="chapter-item "><a href="../../../2-getting-started/control-flow.html"><strong aria-hidden="true">2.5.</strong> 控制流</a></li></ol></li><li class="chapter-item expanded "><a href="../../../5-in-practice1/intro.html"><strong aria-hidden="true">3.</strong> 实战：写一个 Rust 开发脚手架（TODO）</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../1-into-rust/install.html"><strong aria-hidden="true">3.1.</strong> Rust desk 脚手架</a></li><li class="chapter-item "><a href="../../../1-into-rust/ide.html"><strong aria-hidden="true">3.2.</strong> Rust Web 脚手架</a></li><li class="chapter-item "><a href="../../../1-into-rust/cargo.html"><strong aria-hidden="true">3.3.</strong> Rust CMD Tool 脚手架</a></li></ol></li><li class="chapter-item expanded "><a href="../../../5-in-practice1/intro.html"><strong aria-hidden="true">4.</strong> 实战：写一个类 sqlbench 的 sql 测试工具（TODO）</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../1-into-rust/install.html"><strong aria-hidden="true">4.1.</strong> 技术调研</a></li><li class="chapter-item "><a href="../../../1-into-rust/ide.html"><strong aria-hidden="true">4.2.</strong> 功能设计</a></li><li class="chapter-item "><a href="../../../1-into-rust/cargo.html"><strong aria-hidden="true">4.3.</strong> 架构设计</a></li><li class="chapter-item "><a href="../../../1-into-rust/hello-world.html"><strong aria-hidden="true">4.4.</strong> 编码实现</a></li><li class="chapter-item "><a href="../../../1-into-rust/vscode-debug.html"><strong aria-hidden="true">4.5.</strong> CI 和 发布</a></li></ol></li><li class="chapter-item expanded "><a href="../../../5-in-practice1/intro.html"><strong aria-hidden="true">5.</strong> 实战：写一个 Google Translate App（TODO）</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../1-into-rust/install.html"><strong aria-hidden="true">5.1.</strong> 技术调研</a></li><li class="chapter-item "><a href="../../../1-into-rust/ide.html"><strong aria-hidden="true">5.2.</strong> 功能设计</a></li><li class="chapter-item "><a href="../../../1-into-rust/cargo.html"><strong aria-hidden="true">5.3.</strong> 架构设计</a></li><li class="chapter-item "><a href="../../../1-into-rust/hello-world.html"><strong aria-hidden="true">5.4.</strong> 编码实现</a></li><li class="chapter-item "><a href="../../../1-into-rust/vscode-debug.html"><strong aria-hidden="true">5.5.</strong> CI 和 发布</a></li></ol></li><li class="chapter-item expanded "><a href="../../../index.html"><strong aria-hidden="true">6.</strong> 其它相关知识</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../../index.html"><strong aria-hidden="true">6.1.</strong> TCP、HTTP</a></li><li class="chapter-item "><a href="../../../index.html"><strong aria-hidden="true">6.2.</strong> 操作系统</a></li><li class="chapter-item "><a href="../../../index.html"><strong aria-hidden="true">6.3.</strong> 算法和数据结构</a></li><li class="chapter-item "><a href="../../../index.html"><strong aria-hidden="true">6.4.</strong> Rust 前端：WASM</a></li><li class="chapter-item "><a href="../../../index.html"><strong aria-hidden="true">6.5.</strong> Yew</a></li></ol></li><li class="chapter-item expanded "><a href="../../../ref/keywords.html"><strong aria-hidden="true">7.</strong> 关键字</a></li><li class="chapter-item expanded "><a href="../../../ref/naming-conventions.html"><strong aria-hidden="true">8.</strong> 命名规范</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">笨方法学 Rust（Learn Rust the hard way）</h1>
+
+                    <div class="right-buttons">
+                        
+                        
+                        <a href="https://github.com/siu91/LearnRustTheHardWay" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <!-- Page table of contents -->
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+                    <main>
+                        <h1><a class="header" href="#所有权" id="所有权">所有权</a></h1>
+<p>所有权是 Rust 的核心功能，Rust 用所有权系统去管理计算机内存。</p>
+<p>所有程序必须去管理其运行时使用计算机内存的方式：</p>
+<ul>
+<li>
+<p>一些语言有垃圾回收机制，如：Go，Java，在运行时不断寻找不使用的内存；</p>
+</li>
+<li>
+<p>另一些语言中，程序员必须自己手动分配和释放内存，如：C；</p>
+</li>
+<li>
+<p>Rust 则选择了第三种方式：用所有权系统管理内存</p>
+<p>而且这些都是编译器在编译时就已经完成的，不会影响程序的运行效率。</p>
+</li>
+</ul>
+<h2><a class="header" href="#c-的悬空指针" id="c-的悬空指针">C 的悬空指针</a></h2>
+<p><code>悬空指针(Dangling pointer)</code> 是 C 语言中一个常见内存管理问题：</p>
+<pre><code class="language-c">int* foo(){
+    int a;
+    a = 5;
+    char *c = &quot;xyx&quot;;
+    return &amp;a;
+}
+</code></pre>
+<blockquote>
+<p><strong>补充知识点</strong></p>
+<ul>
+<li>1、局部变量存储在栈中</li>
+<li>2、全局变量、静态变量（全局和局部静态变量）存储在静态存储区</li>
+<li>3、new申请的内存是在堆中</li>
+<li>4、字符串常量也是存储在静态存储区</li>
+</ul>
+<p>补充说明：</p>
+<ul>
+<li>1、栈中的变量内存会随着定义所在区间的结束自动释放；而对于堆，需要手动free，否则它就一直存在，直到程序结束；</li>
+<li>2、对于静态存储区，其中的变量常量在程序运行期间会一直存在，不会释放，且变量常量在其中只有一份拷贝，不会出现相同的变量和常量的不同拷贝。</li>
+</ul>
+</blockquote>
+<p>上面这个函数被调用时返回函数内局部变量 <code>a</code> 的地址 <code>&amp;a</code>,但是局部变量 a 是一个基本类型，存储在栈中，离开作用域时程序会申请的内存被系统回收，造成了悬空指针的问题。</p>
+<p>而变量 c 是一个字符常量，存储在静态存储区，在程序运行期间会一直存在，直到程序退出。</p>
+<h2><a class="header" href="#知识点栈和堆" id="知识点栈和堆">知识点：栈和堆</a></h2>
+<blockquote>
+<p><strong>知识点：栈和堆</strong></p>
+<p>栈和堆是编程语言的核心数据结构，对于 Rust 这种系统级语言而言尤为重要，值存储在栈还是堆关系着程序的性能。</p>
+<p>栈（Stack）</p>
+<p>栈是先入后出（FILO），可以类比为叠盘子，增加一个盘子<strong>只能</strong>从顶部（入栈），取下一个盘子<strong>只能</strong>从顶部（出栈）。</p>
+<p>栈中的所有数据都必须占用已知且固定大小的内存空间。</p>
+<p>堆（Heap）</p>
+<p>与栈不同，对于大小未知或者可能变化的数据，我们需要将它存储在堆上。</p>
+<p>当向堆上放入数据时，需要请求一定大小的内存空间。操作系统在堆的某处找到一块足够大的空位，把它标记为已使用，并返回一个表示该位置地址的<strong>指针</strong>, 该过程被称为<strong>在堆上分配内存（allocating on the heap）</strong>，有时简称为 “分配”(allocating)。</p>
+<p>接着，该指针会被推入<strong>栈</strong>中，因为指针的大小是已知且固定的，在后续使用过程中，你将通过栈中的<strong>指针</strong>，来获取数据在堆上的实际内存位置，进而访问该数据。</p>
+<p>性能区别</p>
+<p>写入方面：入栈比在堆上分配内存要快，因为入栈时操作系统无需分配新的空间，只需要将新数据放入栈顶即可。相比之下，在堆上分配内存则需要更多的工作，这是因为操作系统必须首先找到一块足够存放数据的内存空间，接着做一些记录为下一次分配做准备。</p>
+<p>读取方面：栈数据往往可以直接存储在 CPU 高速缓存中（高速缓存和内存的访问速度差异在 10 倍以上！），而堆数据只能存储在内存中。访问堆上的数据比访问栈上的数据慢，因为必须先访问栈再通过栈上的指针来访问内存。</p>
+<p>因此，处理器处理和分配在栈上数据会比在堆上的数据更加高效。</p>
+</blockquote>
+<h2><a class="header" href="#所有权与堆栈" id="所有权与堆栈">所有权与堆栈</a></h2>
+<p>当你的代码调用一个函数时，传递给函数的参数（包括可能指向堆上数据的指针和函数的局部变量）依次被压入栈中，当函数调用结束时，这些值将被从栈中按照相反的顺序依次移除。</p>
+<p>因为堆上的数据缺乏组织，因此跟踪这些数据何时分配和释放是非常重要的，否则堆上的数据将产生内存泄漏 —— 这些数据将永远无法被回收。这就是 Rust 所有权系统为我们提供的强大保障。</p>
+<p>对于其他很多编程语言，你确实无需理解堆栈的原理，但是在 Rust 中，明白堆栈的原理，对于我们理解所有权的工作原理会有很大的帮助。</p>
+<h2><a class="header" href="#所有权原则" id="所有权原则">所有权原则</a></h2>
+<p>理解了堆栈，接下来看一下关于所有权的规则，首先请谨记以下规则：</p>
+<blockquote>
+<ul>
+<li>Rust 中的每一个值都有一个被称为其 所有者（owner）的变量。</li>
+<li>值在任一时刻有且只有一个所有者（owner）。</li>
+<li>当所有者（变量）离开作用域，这个值将被丢弃（drop）。</li>
+</ul>
+</blockquote>
+<h3><a class="header" href="#变量作用域scope" id="变量作用域scope">变量作用域（scope）</a></h3>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn var_scope() {
+    let var1 = &quot;test&quot;; // 声明，作用域开始
+    // ... 使用 var1
+}
+// 作用域结束
+<span class="boring">}
+</span></code></pre></pre>
+<h3><a class="header" href="#转移所有权move" id="转移所有权move">转移所有权（move）</a></h3>
+<pre><pre class="playground"><code class="language-rust">fn move_ownership1() {
+    let x = 5;
+    let y = x;
+
+    println!(&quot;x={},y={}&quot;,x,y)
+}
+
+fn main() {
+ move_ownership1();
+}
+</code></pre></pre>
+<p>值 5 绑定到变量 <code>x</code>，基本类型存储在栈中；将<code>x</code> 的值拷贝给 <code>y</code>，也存储在栈上。</p>
+<p>这种方式也叫浅拷贝，浅拷贝只发生在栈上的数据</p>
+
+                        <div id="giscus-container"></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../../2-getting-started/data-types/ownship-borrowing/intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../../2-getting-started/data-types/ownship-borrowing/references-borrowing.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../../2-getting-started/data-types/ownship-borrowing/intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../../2-getting-started/data-types/ownship-borrowing/references-borrowing.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+        <script src="../../../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../book.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" charset="utf-8">
+        var pagePath = "2-getting-started/data-types/ownship-borrowing/ownship.md"
+        </script>
+
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="../../../assets/custom.js"></script>
+        
+        <script type="text/javascript" src="../../../assets/showBigPicture.js"></script>
+        
+
+        
+
+    </body>
+</html>
