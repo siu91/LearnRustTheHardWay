@@ -21,7 +21,18 @@
   - [数据类型](./2-getting-started/data-types/intro.md)
     - [标量类型](./2-getting-started/data-types/scare-types.md)
     - [单元类型](./2-getting-started/data-types/unit.md)
-    - [复合类型](./2-getting-started/data-types/compound-types.md)
+    - [所有权和借用](./2-getting-started/data-types/ownship-borrowing/intro.md)
+      - [所有权](./2-getting-started/data-types/ownship-borrowing/ownship.md)
+      - [引用和借用](./2-getting-started/data-types/ownship-borrowing/references-borrowing.md)
+    - [复合类型](./2-getting-started/data-types/compound-types/intro.md)
+      - [字符串和切片](./2-getting-started/data-types/compound-types/string-slice.md)
+      - [元组](./2-getting-started/data-types/compound-types/tuple.md)
+      - [数组](./2-getting-started/data-types/compound-types/array.md)
+      - [结构体](./2-getting-started/data-types/compound-types/struct.md)
+      - [枚举](./2-getting-started/data-types/compound-types/enum.md)
+  - [函数](./2-getting-started/function.md)
+  - [注释](./2-getting-started/comments.md)
+  - [控制流](./2-getting-started/control-flow.md)
 
 ## 写一个脚手架
 

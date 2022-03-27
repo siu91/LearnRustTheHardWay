@@ -162,6 +162,24 @@ fn tuple_type() {
 }
 // ANCHOR_END: tuple
 
+// ANCHOR: var_scope
+fn var_scope() {
+    let var1 = "test"; // 声明，作用域开始
+    // ... 使用 var1
+}
+// 作用域结束
+// ANCHOR_END: var_scope
+
+// ANCHOR: move_ownership1
+fn move_ownership1() {
+    let x = 5;
+    let y = x;
+
+    println!("x={},y={}",x,y)
+}
+// ANCHOR_END: move_ownership1
+
+
 fn main() {
     hello_world();
     data_types();
@@ -171,6 +189,7 @@ fn main() {
     float_type();
     char_type();
     tuple_type();
+    move_ownership1();
 }
 
 
