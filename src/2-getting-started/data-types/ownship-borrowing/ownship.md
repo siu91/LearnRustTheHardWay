@@ -93,12 +93,65 @@ int* foo(){
 
 ```rust
 {{#include ../../../../code/main/src/main.rs:move_ownership1}}
+{{#include ../../../../code/main/src/main.rs:move_ownership2}}
 {{#include ../../../../code/main/src/.template:1:2}}
  move_ownership1();
+ move_ownership2();
 {{#include ../../../../code/main/src/.template:3:3}}
 ```
 
-值 5 绑定到变量 `x`，基本类型存储在栈中；将`x` 的值拷贝给 `y`，也存储在栈上。
+move_ownership1 中，值 5 绑定到变量 `x`，基本类型存储在栈中；将`x` 的值拷贝给 `y`，也存储在栈上。
 
+因为整数是 Rust 基本数据类型，是固定大小的简单值，因此这两个值都是通过自动拷贝的方式来赋值的，都被存在栈中，完全无需在堆上分配内存。
 
-这种方式也叫浅拷贝，浅拷贝只发生在栈上的数据
+这种方式也叫浅拷贝，浅拷贝只发生在栈上的数据。
+
+再看看这段代码：
+
+```rust
+{{#include ../../../../code/main/src/main.rs:move_ownership3}}
+{{#include ../../../../code/main/src/.template:1:2}}
+ move_ownership3();
+{{#include ../../../../code/main/src/.template:3:3}}
+```
+
+试试点击运行会抛出错误：`error[E0382]: borrow of moved value: `s1`，这其实就是 Rust 中的移动（move），s1 的所有权被转移了。
+
+move_ownership2 和 move_ownership3 的代码有什么区别，通过IDE可以看到 s1 的数据类型是不一样的：
+
+> move_ownership3 中 s1 持有了通过String::from("s111") 创建的值的所有权，move_ownership2 中只是是引用了存储在二进制中的字符串 "s111"，并没有持有所有权。
+
+![image-20220327204608263](assets/image-20220327204608263.png)
+
+### 克隆(clone)
+
+- Rust 永远也不会自动创建数据的 “深拷贝”。
+
+- 需要深度复制 String 中堆上的数据，可以使用一个叫做 clone 方法：
+
+  ```rust
+  let s1 = String::from("hello");
+  let s2 = s1.clone();
+  
+  println!("s1 = {}, s2 = {}", s1, s2);
+  ```
+
+  
+
+### 拷贝(copy)
+- 浅拷贝只发生在栈上，因此性能很高。
+
+- Rust 有一个叫做 Copy 的特征，可以用在类似整型这样在栈中存储的类型。如果一个类型拥有 Copy 特征，一个旧的变量在被赋值给其他变量后仍然可用。
+
+- 任何基本类型的组合可以 Copy ，不需要分配内存或某种形式资源的类型是可以 Copy 的。如下是一些 Copy 的类型：
+
+  ```txt
+  所有整数类型，比如 u32。
+  布尔类型，bool，它的值是 true 和 false。
+  所有浮点数类型，比如 f64。
+  字符类型，char。
+  元组，当且仅当其包含的类型也都是 Copy 的时候。比如，(i32, i32) 是 Copy 的，但 (i32, String) 就不是。
+  不可变引用 &T ，例如转移所有权中的最后一个例子，但是注意: 可变引用 &mut T 是不可以 Copy的
+  ```
+
+  

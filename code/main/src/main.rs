@@ -179,6 +179,24 @@ fn move_ownership1() {
 }
 // ANCHOR_END: move_ownership1
 
+// ANCHOR: move_ownership2
+fn move_ownership2() {
+    let s1 = "s111";
+    let s2 = s1;
+
+    println!("s1={},s2={}",s1,s2)
+}
+// ANCHOR_END: move_ownership2
+
+// ANCHOR: move_ownership3
+fn move_ownership3() {
+    let s1 = String::from("s111");
+    let s2 = s1;
+
+    println!("s1={},s2={}",s1,s2)
+}
+// ANCHOR_END: move_ownership3
+
 
 fn main() {
     hello_world();
@@ -190,6 +208,8 @@ fn main() {
     char_type();
     tuple_type();
     move_ownership1();
+    move_ownership2();
+    move_ownership3();
 }
 
 
