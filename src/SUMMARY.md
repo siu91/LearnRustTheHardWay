@@ -33,31 +33,53 @@
   - [函数](./2-getting-started/function.md)
   - [注释](./2-getting-started/comments.md)
   - [控制流](./2-getting-started/control-flow.md)
+  - [模式匹配](./2-getting-started/pattern_match//intro.md)
+  - [方法](./2-getting-started/method.md)
+  - [泛型和特征](./2-getting-started/trait/intro.md)
+  - [集合类型](./2-getting-started/collections/intro.md)
+  - [注释和文档](./2-getting-started/comments.md)
 
-## 写一个脚手架
+## 第三章
 
-- [实战：写一个 Rust 开发脚手架（TODO）](./5-in-practice1/intro.md)
-  - [Rust desk 脚手架](./1-into-rust/install.md)
-  - [Rust Web 脚手架](./1-into-rust/ide.md)
-  - [Rust CMD Tool 脚手架](./1-into-rust/cargo.md)
+- [Rust 进阶](./3-advanced/intro.md)
+  - [变量](./2-getting-started/variable.md)
+  - [数据类型](./2-getting-started/data-types/intro.md)
 
-## 写一个工具
+## 第四章
 
-- [实战：写一个类 sqlbench 的 sql 测试工具（TODO）](./5-in-practice1/intro.md)
-  - [技术调研](./1-into-rust/install.md)
-  - [功能设计](./1-into-rust/ide.md)
-  - [架构设计](./1-into-rust/cargo.md)
-  - [编码实现](./1-into-rust/hello-world.md)
-  - [CI 和 发布](./1-into-rust/vscode-debug.md)
+- [Rust 异步编程](./4-async/intro.md)
 
-## 写一个桌面 App
+## 第五章
 
-- [实战：写一个 Google Translate App（TODO）](./5-in-practice1/intro.md)
-  - [技术调研](./1-into-rust/install.md)
-  - [功能设计](./1-into-rust/ide.md)
-  - [架构设计](./1-into-rust/cargo.md)
-  - [编码实现](./1-into-rust/hello-world.md)
-  - [CI 和 发布](./1-into-rust/vscode-debug.md)
+- [Rust 测试和持续集成](./5-test-ci/intro.md)
+
+## 第六章
+
+- [Rust 工具链](./6-toolchains/intro.md)
+
+## 第7章
+
+- [Rust 最佳实践](./7-best-practices/intro.md)
+
+## 第8章
+
+- [Rust 实战](./8-in-practice/intro.md)
+  - [Rust 开发脚手架（TODO）](./8-in-practice/scaffold/intro.md)
+    - [Rust CMD Tool 脚手架](./8-in-practice/scaffold/intro.md)
+    - [Rust Web 脚手架](./8-in-practice/scaffold/intro.md)
+    - [Rust desk 脚手架](./8-in-practice/scaffold/intro.md)
+  - [类 sqlbench 的 sql 测试工具（TODO）](./8-in-practice/sqlslap/intro.md)
+    - [技术调研](./8-in-practice/sqlslap/intro.md)
+    - [功能设计](./8-in-practice/sqlslap/intro.md)
+    - [架构设计](./8-in-practice/sqlslap/intro.md)
+    - [编码实现](./8-in-practice/sqlslap/intro.md)
+    - [CI 和 发布](./8-in-practice/sqlslap/intro.md)
+  - [Google Translate App（TODO）](./8-in-practice/google-translate/intro.md)
+    - [技术调研](./8-in-practice/sqlslap/intro.md)
+    - [功能设计](./8-in-practice/sqlslap/intro.md)
+    - [架构设计](./8-in-practice/sqlslap/intro.md)
+    - [编码实现](./8-in-practice/sqlslap/intro.md)
+    - [CI 和 发布](./8-in-practice/sqlslap/intro.md)
 
 ## 其它
 
