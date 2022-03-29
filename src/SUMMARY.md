@@ -67,6 +67,7 @@
 ## 第7章
 
 - [Rust 最佳实践](./7-best-practices/intro.md)
+  - [IDEA/CLion 快捷键](./7-best-practices/idea-hotkey.md)
 
 ## 第8章
 
