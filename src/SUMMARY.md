@@ -4,6 +4,13 @@
 [Rust 世界](./0-foreword/rust-world.md)
 [学习资料](./0-foreword/learning-materials.md)
 
+## 总结思考
+
+- [总结和思考](./think-in-rust/intro.md)
+
+  - [绑定和赋值](./think-in-rust/bind.md)
+  - [函数和方法](./think-in-rust/function-and-method.md)
+
 ## 第一章
 
 - [走进 Rust](./1-into-rust/intro.md)
@@ -94,3 +101,9 @@
 
 - [关键字](./ref/keywords.md)
 - [命名规范](./ref/naming-conventions.md)
+- [Rust 语言术语中英文对照表](./ref/glossary.md)
+
+## 代码片段
+
+- [Code Snippets](./snippets/intro.md)
+  
