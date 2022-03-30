@@ -18,13 +18,11 @@
 
 ## 笨方法？
 
-- 基础弱；除了熟悉 Java 平常接触的也只有 Shell、Python，不熟悉 Go、C++
+- 除了熟悉 Java 平常接触的也只有 Shell、Python，不熟悉 Go、C++
 - 还是一个 flag；注定要走一个 Hard way：希望能坚持 ✊
 - 从基础到体系；站在一个初学者角度，摒弃之前的语言先入为主的影响，从最基础开始学习
 
-## 这是一本书？
-
-&#8195;&#8195; 当然这不是一本书，可能更多是一个笔记📒；但确实会花很大的心思去写一些 Demo、记录一些学习的过程。这些都会在这里分享。
+## 好好记录学习的过程
 
 &#8195;&#8195; 特别相信一句话：There is a big difference between knowing the way and walking the way。
 
