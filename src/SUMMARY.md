@@ -10,7 +10,9 @@
 
   - [绑定和赋值](./think-in-rust/bind.md)
   - [函数和方法](./think-in-rust/function-and-method.md)
-
+  - [0 成本抽象](./think-in-rust/0-cost-abstract.md)
+  - [为什么 Java 不支持 struct](./think-in-rust/why-java-unsupport-struct.md)
+  
 ## 第一章
 
 - [走进 Rust](./1-into-rust/intro.md)
