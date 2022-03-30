@@ -48,6 +48,7 @@ IDEA / CLion 开发快捷键
 - Command+Option+向左箭头/向右箭头 退回/前进到上一个位置
 - Command+L 在当前文件跳转到某一行的指定处
 - Command+E 显示最近打开的文件记录列表
+- fn+Command+F12 打开当前文件结构层
 
 ## 场景 5：提交代码
 
