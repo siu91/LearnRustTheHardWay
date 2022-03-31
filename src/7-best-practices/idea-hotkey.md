@@ -26,6 +26,7 @@ IDEA / CLion 开发快捷键
 
 ## 场景 3：代码编辑
 
+- Command+左右方向 跳到行首/行尾
 - Command+/ 行注释（再按一下取消注释）
 - Command+Option+/ 块注释（再按一下取消注释）
 - Command+D+/ 复制当前行到下一行
