@@ -1,3 +1,3 @@
 [submodule "src/snippets/leetcode"]
 	path = src/snippets/leetcode
-	url = https://github.com/siu91/rust-leetcode.git
+	url = https://github.com/siu91/leetcode-rust.git
