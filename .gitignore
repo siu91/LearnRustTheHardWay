@@ -3,3 +3,4 @@ src/README.md
 *.xmind
 **/code/**/target/**
 code/main/.idea/**
+src/snippets/leetcode/**
