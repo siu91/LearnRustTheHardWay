@@ -568,8 +568,65 @@ impl Solution {
     }
 }
 
+impl Solution {
+    pub fn convert(s: String, num_rows: i32) -> String {
+        // 算法思路：
+        // 最开始的想法是模拟一个二维数组来填充字符，想了好一会还是没有其它特别思路，看了官方的题解，理解了思路，用 Rust 写一遍。
+        // a  *  *  g  *  *  m
+        // b  *  f  h  *  l  n
+        // c  e  *  i  k  *  o
+        // d  *  *  j  *  *  p
+        // 用一个有序的字符串表示 Z 字型变换：r = 4
+        // 1、观察得到：先向下遍历了 r 个字符，再右向上遍历了 r-2 个字符；再是向下 r 个字符，向右上 r -2 个字符
+        // 2、推导得到：字形变换周期内字符数 t = r + r -2 = 2r -2
+        //            字符串下标为 i
+        //            字符串长度为 n
+        //            单个周期列数 1 + r - 2 = r -1
+        //            字形占的列数 c = n/t . (r -1)
+        //            变形条件 if i mod t < r - 1 { 下一个向下 } else { 下一个右上 } ：例，i = 0..3 向下，i = 4..
+
+        let mut ret: Vec<(char, i32, i32)> = Vec::with_capacity(s.len());
+        let mut array_map = HashMap::with_capacity(s.len());
+
+        let t = 2 * num_rows - 2;
+        let c = s.len() as i32 / t * (num_rows - 1);
+        let chars: Vec<_> = s.chars().collect();
+        let mut x = 0;
+        let mut y = 0;
+        for (i, v) in chars.iter().enumerate() {
+            ret.push((*v, x, y));
+            array_map.insert((x, y), *v);
+            if i as i32 % t < num_rows - 1 {
+                // 向下
+                x += 1;
+            } else {
+                // 右上
+                x -= 1;
+                y += 1;
+            }
+        }
+
+        for i in 0..num_rows {
+            for j in 0..c {
+                //print!("({},{}) ", i, j);
+                if array_map.contains_key(&(i, j)) {
+                    print!("{} ", array_map.get(&(i, j)).unwrap());
+                } else {
+                    print!("* ")
+                }
+            }
+            println!("");
+        }
+
+        return "".to_string();
+    }
+}
+
 
 fn main() {
+    let m = Solution::convert(String::from("abcdefghijklmnopqrstuvwxyz"), 4);
+    assert_eq!("bab".to_string(), m);
+    
     let m = Solution::longest_palindrome(String::from("babad"));
     assert_eq!("bab".to_string(), m);
     let m = Solution::longest_palindrome(String::from("b"));
