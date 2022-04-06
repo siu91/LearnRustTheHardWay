@@ -442,34 +442,68 @@ impl Solution {
 use std::cmp::min;
 
 impl Solution {
+
+
     pub fn find_median_sorted_arrays(nums1: Vec<i32>, nums2: Vec<i32>) -> f64 {
-        // nums1 = [1,3], nums2 = [2]
+        // 算法思路：
+        // 1、确定中位数的下标 i 或 i、j
+        // 2、在 nums1 nums2 中找到第 i 或 i、j 大的值
+        //
+        // 算法思路较为简单，实际还是有很多边界值要处理，所以最终用 Rust 模式匹配处理边界值：
+        //      空数组、空数组：返回 0
+        //      非空数组、空数组：返回 第一个数组内的 i、j
+        //      空数组、非空数组：返回第二个数组内的 i，j
+        //      非空数组、非空数组：设置两个起点标记两个数组的遍历 a_start、b_start
+        //
+        //      时间复杂度：O(N/2+1)
+        //      空间复杂度：O(N/2+1)，N 数组总长度为，主要为寻找中位数是存下已排序的值
         let len = nums1.len() + nums2.len();
-        let mut i = -1;
-        let mut j = -1;
-        let mut nums = Vec::with_capacity(len);
+        let mut i = 0;
+        let mut j = 0;
+
         if len % 2 == 0 {
             i = (len / 2) - 1;
             j = len / 2;
         } else {
-            j = ((len + 1) / 2) - 1
+            i = ((len + 1) / 2) - 1
         }
 
-        //            while
 
-        for m in 0..len {
-            let n = m;
-            while m < nums1.len() && m < nums2.len() {
-                if nums1[m] < nums2[m] {
-                    nums[m] = nums1[m];
-                } else {
-                    nums[m] = nums2[m];
+        return match (nums1.len(), nums2.len()) {
+            (0, 0) => 0 as f64,
+            (_, 0) => if len % 2 == 0 {
+                ((nums1[i] as f64 + nums1[j] as f64) / 2f64) as f64
+            } else {
+                nums1[i] as f64
+            },
+            (0, _) => if len % 2 == 0 {
+                ((nums2[i] as f64 + nums2[j] as f64) / 2f64) as f64
+            } else {
+                nums2[i] as f64
+            },
+            (_, _) => {
+                let mut a_start = 0;
+                let mut b_start = 0;
+                let mut nums = Vec::with_capacity(len);
+                loop {
+                    if b_start >= nums2.len() || (a_start < nums1.len() && nums1[a_start] <= nums2[b_start]) {
+                        nums.push(nums1[a_start]);
+                        a_start += 1;
+                    } else {
+                        nums.push(nums2[b_start]);
+                        b_start += 1;
+                    }
+                    if nums.len() - 1 >= max(i, j) {
+                        break;
+                    }
                 }
+                return if len % 2 == 0 {
+                    ((nums[i] as f64 + nums[j] as f64) / 2f64) as f64
+                } else {
+                    nums[i] as f64
+                };
             }
-        }
-
-
-        return 1f64;
+        };
     }
     pub fn find_median_sorted_arrays2(nums1: Vec<i32>, nums2: Vec<i32>) -> f64 {
         let mut nums: Vec<i32> = Vec::with_capacity(nums1.len() + nums2.len());
@@ -492,8 +526,26 @@ impl Solution {
 
 
 fn main() {
+    let m = Solution::find_median_sorted_arrays(vec![100001], vec![100000]);
+    assert_eq!(m, 100000.5f64);
+    let m = Solution::find_median_sorted_arrays(vec![100000], vec![100001]);
+    assert_eq!(m, 100000.5f64);
+    let m = Solution::find_median_sorted_arrays(vec![], vec![2, 3]);
+    assert_eq!(m, 2.5f64);
+    let m = Solution::find_median_sorted_arrays(vec![2], vec![]);
+    assert_eq!(m, 2f64);
+    let m = Solution::find_median_sorted_arrays(vec![], vec![2]);
+    assert_eq!(m, 2f64);
+    let m = Solution::find_median_sorted_arrays(vec![2], vec![0, 0]);
+    assert_eq!(m, 0f64);
+    let m = Solution::find_median_sorted_arrays(vec![0, 0], vec![0, 0]);
+    assert_eq!(m, 0f64);
     let m = Solution::find_median_sorted_arrays(vec![1, 3], vec![2]);
     assert_eq!(m, 2f64);
+
+    let m = Solution::find_median_sorted_arrays(vec![1, 4, 5], vec![3, 7, 8]);
+    assert_eq!(m, 4.5);
+
     let m = Solution::find_median_sorted_arrays(vec![1, 2], vec![3, 4]);
     assert_eq!(m, 2.5f64);
 
