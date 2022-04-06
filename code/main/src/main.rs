@@ -540,9 +540,10 @@ impl Solution {
 
 
         let mut longest = 0;
-        let mut map = HashMap::with_capacity(s.len());
+        let mut start = 0;
+        let mut end = 0;
         for it in 0..s.len() {
-            if longest >= s.len() {
+            if longest >= s.len() - 1 {
                 break;
             }
             let mut i = it;
@@ -556,14 +557,14 @@ impl Solution {
                 i -= 1;
                 j += 1;
             }
-            longest = max(longest, j - i + 1);
-            if !map.contains_key(&longest) {
-                map.insert(longest, (i, j));
+            if j - i > longest {
+                longest = j - i;
+                start = i;
+                end = j;
             }
         }
 
-        let t = map.get(&longest).unwrap();
-        (&s[t.0..t.1 + 1]).to_string()
+        (&s[start..end + 1]).to_string()
     }
 }
 
