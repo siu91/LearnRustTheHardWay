@@ -442,8 +442,6 @@ impl Solution {
 use std::cmp::min;
 
 impl Solution {
-
-
     pub fn find_median_sorted_arrays(nums1: Vec<i32>, nums2: Vec<i32>) -> f64 {
         // 算法思路：
         // 1、确定中位数的下标 i 或 i、j
@@ -524,8 +522,62 @@ impl Solution {
     }
 }
 
+impl Solution {
+    pub fn longest_palindrome(s: String) -> String {
+        if s.len() < 2 {
+            return s;
+        }
+
+        let chars: Vec<_> = s.chars().collect();
+        // 算法思路：
+        // 1、chars.len() < 2，返回
+        // 2、分析1：回文字符串长度除了中心字符，一定四偶数
+        // 3、分析2：回文字符串的中心字符串长度一定是 n 个相同的字符组成，n >=0
+        // 3、分析3：回文字符串中心字符两边字符相等，表示为：
+        //          中心字符串：s[i..j]
+        //          中心字符串两边的字符：s[i-1]=s[j+1]
+        // 4、算法：遍历字符串中每一个字符，把每个字符当作回文字符串的中心字符：
+
+
+        let mut longest = 0;
+        let mut map = HashMap::with_capacity(s.len());
+        for it in 0..s.len() {
+            if longest >= s.len() {
+                break;
+            }
+            let mut i = it;
+            let mut j = it;
+            // 确定中心字符串 s[i..j]
+            while j + 1 < s.len() && chars[i] == chars[j + 1] {
+                j += 1;
+            }
+            // 判断 s[i-1]=s[j+1]
+            while i > 0 && j + 1 < chars.len() && chars[i - 1] == chars[j + 1] {
+                i -= 1;
+                j += 1;
+            }
+            longest = max(longest, j - i + 1);
+            if !map.contains_key(&longest) {
+                map.insert(longest, (i, j));
+            }
+        }
+
+        let t = map.get(&longest).unwrap();
+        (&s[t.0..t.1 + 1]).to_string()
+    }
+}
+
 
 fn main() {
+    let m = Solution::longest_palindrome(String::from("babad"));
+    assert_eq!("bab".to_string(), m);
+    let m = Solution::longest_palindrome(String::from("b"));
+    assert_eq!("b".to_string(), m);
+
+    let m = Solution::longest_palindrome(String::from("bb"));
+    assert_eq!("bb".to_string(), m);
+
+
     let m = Solution::find_median_sorted_arrays(vec![100001], vec![100000]);
     assert_eq!(m, 100000.5f64);
     let m = Solution::find_median_sorted_arrays(vec![100000], vec![100001]);
