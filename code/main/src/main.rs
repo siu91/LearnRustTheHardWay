@@ -585,16 +585,15 @@ impl Solution {
         //            字形占的列数 c = n/t . (r -1)
         //            变形条件 if i mod t < r - 1 { 下一个向下 } else { 下一个右上 } ：例，i = 0..3 向下，i = 4..
 
-        let mut ret: Vec<(char, i32, i32)> = Vec::with_capacity(s.len());
-        let mut array_map = HashMap::with_capacity(s.len());
-
         let t = 2 * num_rows - 2;
-        let c = s.len() as i32 / t * (num_rows - 1);
-        let chars: Vec<_> = s.chars().collect();
+        let c = ((s.len() as f64 / t as f64) * (num_rows - 1) as f64) as i32;
         let mut x = 0;
         let mut y = 0;
+
+        let chars: Vec<_> = s.chars().collect();
+        let mut array_map = HashMap::with_capacity(s.len());
+
         for (i, v) in chars.iter().enumerate() {
-            ret.push((*v, x, y));
             array_map.insert((x, y), *v);
             if i as i32 % t < num_rows - 1 {
                 // 向下
@@ -606,27 +605,33 @@ impl Solution {
             }
         }
 
+        let mut ret = String::from("");
         for i in 0..num_rows {
             for j in 0..c {
-                //print!("({},{}) ", i, j);
                 if array_map.contains_key(&(i, j)) {
                     print!("{} ", array_map.get(&(i, j)).unwrap());
+                    ret.push(*array_map.get(&(i, j)).unwrap());
+                    ret.push_str(" ");
                 } else {
-                    print!("* ")
+                    print!("* ");
+                    ret.push_str("  ");
                 }
             }
-            println!("");
+            ret.pop();
+            ret.push_str("\n");
+            println!();
         }
 
-        return "".to_string();
+        println!("{}", ret);
+        return ret;
     }
 }
 
 
 fn main() {
-    let m = Solution::convert(String::from("abcdefghijklmnopqrstuvwxyz"), 4);
+    let m = Solution::convert(String::from("abcdefghijklmnopqrstuvwxyz"), 3);
     assert_eq!("bab".to_string(), m);
-    
+
     let m = Solution::longest_palindrome(String::from("babad"));
     assert_eq!("bab".to_string(), m);
     let m = Solution::longest_palindrome(String::from("b"));
