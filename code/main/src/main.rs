@@ -407,7 +407,7 @@ impl Solution {
 }
 
 use std::collections::HashSet;
-use std::cmp::max;
+use std::cmp::{max, Ordering};
 
 impl Solution {
     pub fn length_of_longest_substring(s: String) -> i32 {
@@ -585,6 +585,50 @@ impl Solution {
         //            字形占的列数 c = n/t . (r -1)
         //            变形条件 if i mod t < r - 1 { 下一个向下 } else { 下一个右上 } ：例，i = 0..3 向下，i = 4..
 
+        if num_rows <= 1 || s.len() as i32 <= num_rows {
+            return s;
+        }
+
+        let t = 2 * num_rows - 2;
+        let mut x = 0;
+        let mut y = 0;
+
+        let chars: Vec<_> = s.chars().collect();
+        let mut array = Vec::with_capacity(s.len());
+
+        for (i, v) in chars.iter().enumerate() {
+            array.push((*v, x, y));
+            if i as i32 % t < num_rows - 1 {
+                // 向下
+                x += 1;
+            } else {
+                // 右上
+                x -= 1;
+                y += 1;
+            }
+        }
+        // sort
+        array.sort_by(|a, b| a.1.cmp(&b.1).then_with(|| a.2.cmp(&b.2)));
+        // map
+        array.iter().map(|v| v.0).collect()
+    }
+
+    pub fn convert_print(s: String, num_rows: i32) -> String {
+        // 算法思路：
+        // 最开始的想法是模拟一个二维数组来填充字符，想了好一会还是没有其它特别思路，看了官方的题解，理解了思路，用 Rust 写一遍。
+        // a  *  *  g  *  *  m
+        // b  *  f  h  *  l  n
+        // c  e  *  i  k  *  o
+        // d  *  *  j  *  *  p
+        // 用一个有序的字符串表示 Z 字型变换：r = 4
+        // 1、观察得到：先向下遍历了 r 个字符，再右向上遍历了 r-2 个字符；再是向下 r 个字符，向右上 r -2 个字符
+        // 2、推导得到：字形变换周期内字符数 t = r + r -2 = 2r -2
+        //            字符串下标为 i
+        //            字符串长度为 n
+        //            单个周期列数 1 + r - 2 = r -1
+        //            字形占的列数 c = n/t . (r -1)
+        //            变形条件 if i mod t < r - 1 { 下一个向下 } else { 下一个右上 } ：例，i = 0..3 向下，i = 4..
+
         let t = 2 * num_rows - 2;
         let c = ((s.len() as f64 / t as f64) * (num_rows - 1) as f64) as i32;
         let mut x = 0;
@@ -629,6 +673,10 @@ impl Solution {
 
 
 fn main() {
+    let m = Solution::convert(String::from("A"), 1);
+    assert_eq!("A".to_string(), m);
+    let m = Solution::convert(String::from("PAYPALISHIRING"), 3);
+    assert_eq!("PAHNAPLSIIGYIR".to_string(), m);
     let m = Solution::convert(String::from("abcdefghijklmnopqrstuvwxyz"), 3);
     assert_eq!("bab".to_string(), m);
 
