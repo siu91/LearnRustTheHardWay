@@ -671,8 +671,21 @@ impl Solution {
     }
 }
 
+use std::thread;
+
+fn thread_test() {
+    let name = String::from("thread1");
+    let t1 = thread::spawn(move || {
+        for i in 0..10 {
+            println!("{} i={}", name, i);
+        }
+    });
+    t1.join().unwrap();
+}
+
 
 fn main() {
+    thread_test();
     let m = Solution::convert(String::from("A"), 1);
     assert_eq!("A".to_string(), m);
     let m = Solution::convert(String::from("PAYPALISHIRING"), 3);
