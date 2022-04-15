@@ -683,8 +683,21 @@ fn thread_test() {
     t1.join().unwrap();
 }
 
+use std::sync::mpsc;
+
+fn mpsc_test() {
+    let (s, r) = mpsc::channel();
+
+    thread::spawn(move || {
+        s.send("i am from thread inner");
+    });
+
+    println!("{}", r.recv().unwrap())
+}
+
 
 fn main() {
+    mpsc_test();
     thread_test();
     let m = Solution::convert(String::from("A"), 1);
     assert_eq!("A".to_string(), m);
