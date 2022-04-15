@@ -737,8 +737,49 @@ fn barrier() {
     }
 }
 
+use std::sync::Condvar;
+use std::time::Duration;
+
+fn condvar_test() {
+    let condition = Arc::new(Condvar::new());
+    let flag = Arc::new(Mutex::new(false));
+
+    let _condition = Arc::clone(&condition);
+    let _flag = Arc::clone(&flag);
+
+    let handle = thread::spawn(move || {
+        let mut c = 0;
+        let mut f = *_flag.lock().unwrap();
+        while c < 3 {
+            while !f {
+                f = *_condition.wait(_flag.lock().unwrap()).unwrap();
+            }
+            {
+                f = false;
+                *_flag.lock().unwrap() = false;
+            }
+            c += 1;
+            println!("inner counter={}", c);
+        }
+    });
+
+    let mut c = 0;
+    loop {
+        thread::sleep(Duration::from_millis(1000));
+        *flag.lock().unwrap() = true;
+        if c > 3 {
+            break;
+        }
+        condition.notify_one();
+        c += 1;
+        println!("outer counter={}", c);
+    }
+    handle.join().unwrap();
+}
+
 
 fn main() {
+    condvar_test();
     barrier();
     arc_mutex();
     mpsc_test();
