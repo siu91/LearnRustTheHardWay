@@ -692,11 +692,55 @@ fn mpsc_test() {
         s.send("i am from thread inner");
     });
 
+    println!("{:?}", r.try_recv());
     println!("{}", r.recv().unwrap())
+}
+
+use std::sync::{Arc, Mutex};
+
+fn arc_mutex() {
+    let counter = Arc::new(Mutex::new(0));
+    let mut handles = vec![];
+
+    for i in 0..10 {
+        let counter = Arc::clone(&counter);
+        let h = thread::spawn(move || {
+            let mut num = counter.lock().unwrap();
+            *num += 1;
+        });
+        handles.push(h);
+    }
+    for h in handles {
+        h.join().unwrap();
+    }
+    println!("counter={}", counter.lock().unwrap())
+}
+
+use std::sync::Barrier;
+
+fn barrier() {
+    let n: usize = 10;
+    let b = Arc::new(Barrier::new(n));
+    let mut handles = Vec::with_capacity(n);
+
+    for i in 0..n {
+        let b = Arc::clone(&b);
+        let h = thread::spawn(move || {
+            println!("before barrier");
+            b.wait();
+            println!("after barrier");
+        });
+        handles.push(h);
+    }
+    for h in handles {
+        h.join().unwrap();
+    }
 }
 
 
 fn main() {
+    barrier();
+    arc_mutex();
     mpsc_test();
     thread_test();
     let m = Solution::convert(String::from("A"), 1);
