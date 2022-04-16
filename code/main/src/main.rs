@@ -407,7 +407,7 @@ impl Solution {
 }
 
 use std::collections::HashSet;
-use std::cmp::{max, Ordering};
+use std::cmp::{max};
 
 impl Solution {
     pub fn length_of_longest_substring(s: String) -> i32 {
@@ -777,8 +777,41 @@ fn condvar_test() {
     handle.join().unwrap();
 }
 
+use std::time::Instant;
+use std::sync::atomic::{AtomicU64, Ordering};
+use std::thread::JoinHandle;
+
+
+const N_TIMES: u64 = 1000000;
+const N_THREADS: usize = 10;
+
+const R: AtomicU64 = AtomicU64::new(0);
+
+fn run(n: u64) -> JoinHandle<()> {
+    thread::spawn(move || {
+        for _ in 0..n {
+            R.fetch_add(1, Ordering::Relaxed);
+        }
+    })
+}
+
+fn atomic_test() {
+    let start = Instant::now();
+    let mut threads = Vec::with_capacity(N_THREADS);
+
+    for _ in 0..N_THREADS {
+        threads.push(run(N_TIMES));
+    }
+    for t in threads {
+        t.join().unwrap();
+    }
+
+    assert_eq!(N_TIMES * N_THREADS as u64, R.load(Ordering::Relaxed))
+}
+
 
 fn main() {
+    atomic_test();
     condvar_test();
     barrier();
     arc_mutex();
