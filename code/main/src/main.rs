@@ -809,8 +809,32 @@ fn atomic_test() {
     assert_eq!(N_TIMES * N_THREADS as u64, R.load(Ordering::Relaxed))
 }
 
+use tokio::sync::Semaphore;
+
+async fn semaphore_test() {
+    let semaphore = Arc::new(Semaphore::new(3));
+    let mut handles = Vec::with_capacity(5);
+
+    for _ in 0..5 {
+        println!("{}", semaphore.available_permits());
+        let permit = semaphore.clone().acquire_owned().await.unwrap();
+        handles.push(
+            tokio::spawn(async move {
+                thread::sleep(Duration::from_millis(1000));
+
+                drop(permit);
+            })
+        );
+    }
+
+    for h in handles {
+        h.await.unwrap();
+    }
+}
+
 
 fn main() {
+    semaphore_test();
     atomic_test();
     condvar_test();
     barrier();
